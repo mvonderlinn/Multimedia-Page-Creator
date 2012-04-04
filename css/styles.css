@@ -1,0 +1,315 @@
+html, body {
+   margin: 0;
+   padding:0;
+   background-color: #F9F9F9;
+   font-family: Tahoma, Geneva, sans-serif;
+   text-shadow: 0 1px #e0e0e0;
+   -webkit-font-smoothing: subpixel-antialiased;
+   -webkit-text-shadow: none;
+   
+ 
+}
+
+* {
+   color: #383838;
+
+}
+
+
+*:hover {
+   color: #408DD2;
+}
+
+h1 {
+   font-weight: normal;
+   text-align: left;
+   margin:0;
+   padding:0;
+   margin-bottom: 13px;
+   padding-left: 13px;
+   font-size: 50px;
+   -moz-transition: all 0.5s ease 0s;
+   -webkit-transition: all 0.5s ease 0s;    
+}
+
+h1 span:hover {
+   -moz-transition: all 0.5s ease 0s;
+   -webkit-transition: all 0.5s ease 0s;
+}
+
+
+#mpc-content {
+   position: relative;
+   background: -moz-linear-gradient(top, #F9F9F9 5%, #F0F0F0 20%) repeat scroll 0 0 transparent;
+   background: -webkit-linear-gradient(top, #F9F9F9 5%, #F0F0F0 20%) repeat scroll 0 0 transparent;
+   margin: 0;
+   margin-top: 4px;
+   margin-left: auto;
+   margin-right: auto;
+   margin-bottom: 4px;
+   padding: 0;
+   padding-top: 12px;
+   width: 1000px;
+   height: 795px;
+   border: medium none;
+   border-radius: 4px 4px 4px 4px;
+   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+   
+}
+
+#mpc-tools {
+   width: 300px;
+   border: 1px solid green;
+   border: 0;
+   padding: 0;
+   margin: 0;
+   display: inline-block;
+   vertical-align: top;
+   text-align: center;
+}
+
+#mpc-canvas-wrapper{
+   margin: 0;
+   margin-right: 25px;
+   padding: 0;
+   display: inline-block;
+   vertical-align: top;   
+   width: 665px;
+   height: 720px;
+   border: 1px solid red;
+   border: 0;
+   overflow: auto;
+   position: relative;
+   z-index: 5;
+}
+
+
+#mpc-canvas-container {
+   margin: 0;
+   padding: 0;
+   margin-left: auto;
+   margin-right: auto;
+   background: white;
+   width: 650px;
+   height: 690px;
+   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+   position: relative;
+   z-index: 5;
+}
+
+.mpc-tool {
+   background: -webkit-linear-gradient(top, #F9F9F9 50%, #F0F0F0 100%) repeat scroll 0 0 transparent;
+   background: -moz-linear-gradient(top, #F9F9F9 50%, #F0F0F0 100%) repeat scroll 0 0 transparent;
+   
+   
+   
+   border-radius: 4px 4px 4px 4px;
+   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+   
+   line-height: 80px;
+   font-size: 20px;
+   
+   position: relative;
+   padding: 0;
+   margin: 0;
+   margin-left: auto;
+   margin-right: auto;
+   margin-bottom: 35px;
+   
+   width: 120px;
+   height: 80px;
+   
+   vertical-align: top;
+   display: inline-block;
+   
+   cursor: pointer;
+
+   -moz-transition: all 0.5s ease 0s;
+   -webkit-transition: all 0.5s ease 0s;   
+}
+
+.mpc-tool:hover {
+
+   border-color: #408DD2;
+   color: #408DD2;
+}
+
+#mpc-title-caption {
+   font-size: 13px;
+   color: #808080;
+
+}
+
+.mpc-tool .mpc-caption {
+   position: absolute;
+   top: 55px;
+   left: 0;
+   width: 120px;
+   font-size: 13px;
+   color: #808080;
+   text-align: center;
+   
+}
+
+ul#mpc-menu {
+   position: absolute;
+   
+   top: 180px;
+   right: -57px;
+   
+   width: 100px;
+   border: 1px solid yellow;
+   border: 0;
+   
+   margin: 0;
+   padding: 0;
+   
+   list-style-type: none;
+   padding: 0px;
+   margin: 0px;
+   
+   display: block;
+   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+   border-radius: 4px;
+   z-index: 0;
+   
+}
+
+#mpc-menu li {
+   
+   position: relative;
+   
+   display: inline-block;
+   width: 100px;
+   height: 30px;
+   
+   text-align: center;
+   
+   font-size: 17px;
+   line-height: 28px;
+   
+   background: none repeat scroll 0 0 #333333;
+   
+   box-shadow: 0 0 1px rgba(0, 0, 0, 0.1) inset;
+   color: #fefefe;
+   text-shadow: none;
+   
+   margin: 0;
+   padding: 0;
+   
+   text-decoration: none;
+   vertical-align: middle;
+   
+   cursor: pointer;
+   margin: 0;
+   float: left;
+   
+   border-bottom: 1px solid #303030;
+   border-top: 1px solid #707070;
+}
+
+#mpc-menu li:first-child  {
+   border-radius: 0 4px 0 0 ;
+   border-top: none;
+}
+
+#mpc-menu li:last-child  {
+   border-radius: 0 0 4px 0;
+   border-bottom: none;
+}
+
+#mpc-menu li:hover {
+   -moz-transition: all 0.5s ease 0s;
+   -webkit-transition: all 0.5s ease 0s;
+   background: none repeat scroll 0 0 #408DD2;
+}
+    
+#mpc-menu li:active {    
+   color: white;
+}
+
+#mpc-properties {
+   border: 1px solid white;
+   position: absolute;
+   top: 395px;
+   left:835px;
+   background-color: #f9f9f9;
+   padding:0;
+   margin:0;
+   padding-bottom: 8px;
+   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3),
+    inset 0 1px rgba(0,0,0,0.1);
+    border-top: none;
+   font-size: 17px;
+   
+   border-radius: 4px;
+   
+
+   background: -moz-linear-gradient(top , #F9F9F9 5%, #F0F0F0 20%) repeat scroll 0 0 transparent;
+   background: -webkit-linear-gradient(top , #F9F9F9 5%, #F0F0F0 20%) repeat scroll 0 0 transparent;
+   
+   color: #808080;
+   min-height: 350px;
+   min-width: 220px;
+   z-index: 20;  
+}
+
+table#mpc-properties-content {
+   color: #303030;
+   margin: 10px;
+   letter-spacing: 1px;
+   padding: 0;
+}
+
+table#mpc-properties-content tr, 
+table#mpc-properties-content td {
+   padding: 0;
+   margin: 0;
+}
+
+
+table#mpc-properties-content td {
+   min-width: 87px;
+   
+}
+
+table#mpc-properties-content td:nth-child(odd) {
+   text-align: right;
+   padding-right: 2px;
+}
+
+table#mpc-properties-content td:nth-child(even) {
+   text-align: left;
+   padding-left: 2px;  
+}
+
+table#mpc-properties-content tr:hover * {
+   color: #408DD2;
+   cursor: default;
+}
+
+#mpc-properties h2 {
+   padding: 0;
+   margin: 0;
+   
+   cursor: pointer;
+   
+   font-size: 17px;
+   letter-spacing: 1px;
+   font-weight: normal;
+   text-decoration: underline;
+   
+   text-align: center;
+   
+   
+   border-radius: 4px;
+   
+   text-shadow: none;
+   width: 100%;
+   position: relative;
+   display: block;
+   
+   height: 30px;
+   line-height: 30px;
+   
+}
