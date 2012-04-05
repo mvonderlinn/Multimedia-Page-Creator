@@ -1,3 +1,4 @@
 TextController = {
-   
-};
+   init: function() {
+   }
+}.init();

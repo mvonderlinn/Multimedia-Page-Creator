@@ -1,0 +1,4 @@
+OvalController = {
+   init: function() {
+   }
+}.init();

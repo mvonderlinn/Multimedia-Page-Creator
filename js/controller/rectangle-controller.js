@@ -1,0 +1,4 @@
+RectangleController = {
+   init: function() {
+   }
+}.init();

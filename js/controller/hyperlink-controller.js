@@ -1,0 +1,4 @@
+Hyperlink = {
+   init: function() {
+   }   
+}.init();

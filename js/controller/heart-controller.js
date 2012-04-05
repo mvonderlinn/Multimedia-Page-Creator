@@ -1,0 +1,4 @@
+HeartController = {
+   init: function() {
+   }
+}.init();

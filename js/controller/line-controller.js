@@ -1,0 +1,4 @@
+LineController = {
+   init: function() {
+   }
+}.init();

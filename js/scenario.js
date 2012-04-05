@@ -78,7 +78,8 @@ function initShapes() {
 }
 
 $(document).ready(function() {
-  
+   PageLoadedEvent.trigger();
+   
    $('#mpc-colorpicker').ColorPicker({
       color: '#ffffff',
       onShow: function (colpkr) {
