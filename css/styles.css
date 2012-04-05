@@ -124,8 +124,8 @@ h1 span:hover {
    
    cursor: pointer;
 
-   -moz-transition: all 0.5s ease 0s;
-   -webkit-transition: all 0.5s ease 0s;   
+   -moz-transition: color 0.5s ease 0s;
+   -webkit-transition: color 0.5s ease 0s;   
 }
 
 .mpc-tool:hover {
@@ -286,6 +286,11 @@ table#mpc-properties-content td:nth-child(even) {
 table#mpc-properties-content tr:hover * {
    color: #408DD2;
    cursor: default;
+}
+
+#mpc-properties * {
+   -moz-transition: all 0.5s ease 0s;
+   -webkit-transition: all 0.5s ease 0s;
 }
 
 #mpc-properties h2 {

@@ -1,10 +1,20 @@
 <!doctype html>
 <html>
 <head>
- <title></title>
- <link rel="stylesheet" href="css/styles.css" />
- <script type="text/javascript" src="lib/jquery-1.7.2.min.js"></script>
- <script type="text/javascript" src="scenario.js"></script>
+ <meta http-equiv="Content-Type" content="text/html;charset=utf-8"></meta>
+ <title>Multimedia Page Creator</title>
+ 
+ <link rel="stylesheet" media="screen" type="text/css" href="css/colorpicker.css" />
+ <link rel="stylesheet" media="screen" type="text/css" href="css/styles.css" />
+ <link rel="stylesheet" media="screen" type="text/css" href="css/tools.css" />
+ 
+ <script type="text/javascript" src="js/lib/jquery-1.7.2.min.js"></script>
+ <script type="text/javascript" src="js/lib/jquery-ui-1.8.18.custom.min.js"></script>
+ 
+ <script type="text/javascript" src="js/lib/colorpicker.js"></script>
+ 
+ <script type="text/javascript" src="js/scenario.js"></script>
+ 
 </head>
 <body>
 
@@ -18,32 +28,39 @@
    
    <div id="mpc-tools">
       
-      <div id="mpc-tool-text" class="mpc-tool">
-         Text
-         <div class="mpc-caption">
+      <div class="mpc-tool mpc-tool-text" contenteditable="true">
+         Abc...
+         <div class="mpc-caption"  contenteditable="false">
             optional text
          </div>
       </div>
       
       
-      <div id="mpc-tool-youtube" class="mpc-tool">
-         You tube
+      <div class="mpc-tool mpc-tool-youtube">
+         <img src="im/youtube-icon.png" alt="" width="120" height="80" style="border:0"/>
          <div class="mpc-caption">
             youtube video
          </div>
       </div>
 
-      <div id="mpc-tool-youtube" class="mpc-tool">
-         Line
+      <div class="mpc-tool mpc-tool-line">
+         <canvas></canvas>
          <div class="mpc-caption">
             line shape
          </div>
       </div>
       
-      <div id="mpc-tool-youtube" class="mpc-tool">
-         Oval
+      <div class="mpc-tool mpc-tool-oval">
+         <canvas></canvas>
          <div class="mpc-caption">
             oval shape
+         </div>
+      </div>
+      
+      <div class="mpc-tool mpc-tool-heart">
+         <canvas></canvas>
+         <div class="mpc-caption">
+            heart shape
          </div>
       </div>
       
@@ -67,21 +84,21 @@
       <table id="mpc-properties-content">
        
        <tr>
-         
-         <td><span contenteditable="true">520</span>px</td>
          <td>width</td>
+         <td><span contenteditable="true">520</span>px</td>
+         
        </tr>
        
        <tr>
-         
-         <td><span contenteditable="true">700</span>px</td>
          <td>height</td>
+         <td><span contenteditable="true">700</span>px</td>
+         
        </tr>
        
        <tr>
-         
-         <td><span contenteditable="true">white</span></td>         
          <td>bgcolor</td>
+         <td><span style="position:relative" contenteditable="true" id="mpc-colorpicker">#ffffff</span></td>         
+         
        </tr>
        
       </table>

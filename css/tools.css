@@ -1,0 +1,39 @@
+.mpc-tool-text {
+   position: absolute;
+   top: 101px;
+   left: 27px;
+   z-index: 21;
+   opacity: 1.5;
+}
+
+.mpc-tool-youtube {
+   position: absolute;
+   top: 101px;
+   left: 152px;
+   z-index: 21;
+   opacity: 1.5;
+}
+
+.mpc-tool-line {
+   position: absolute;
+   top: 216px;
+   left: 27px;
+   z-index: 21;
+   opacity: 1.5;
+}
+
+.mpc-tool-oval {
+   position: absolute;
+   top: 216px;
+   left: 152px;
+   z-index: 21;
+   opacity: 1.5;
+}
+
+.mpc-tool-heart {
+   position: absolute;
+   top: 331px;
+   left: 27px;
+   z-index: 21;
+   opacity: 1.5;
+}
