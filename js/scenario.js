@@ -80,4 +80,11 @@ $(document).ready(function() {
       $(".mpc-tool-text").focus();
    });
 
+	$( "#mpc-canvas-container" ).droppable({
+			drop: function( event, ui ) {
+				ui.draggable.removeClass("mpc-tool");
+            ui.draggable.children(".mpc-caption").remove();
+         }
+	});
+   
 });
