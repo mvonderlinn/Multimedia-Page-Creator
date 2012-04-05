@@ -4,6 +4,7 @@
  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"></meta>
  <title>Multimedia Page Creator</title>
  
+ <link rel="stylesheet" media="screen" type="text/css" href="css/lib/jquery-ui-1.8.18.custom.css" />
  <link rel="stylesheet" media="screen" type="text/css" href="css/colorpicker.css" />
  <link rel="stylesheet" media="screen" type="text/css" href="css/styles.css" />
  <link rel="stylesheet" media="screen" type="text/css" href="css/tools.css" />
@@ -28,18 +29,17 @@
    
    <div id="mpc-tools">
       
-      <div class="mpc-tool mpc-tool-text" contenteditable="true">
-         Abc...
+      <div class="mpc-tool mpc-tool-text">
+         <span>Abc...</span>
          <div class="mpc-caption"  contenteditable="false">
             optional text
          </div>
       </div>
       
-      
-      <div class="mpc-tool mpc-tool-youtube">
-         <img src="im/youtube-icon.png" alt="" width="120" height="80" style="border:0"/>
+      <div class="mpc-tool mpc-tool-hyperlink">
+         <a href="http://www.wikipedia.org/">link</a>
          <div class="mpc-caption">
-            youtube video
+            hyperlink
          </div>
       </div>
 
@@ -57,10 +57,24 @@
          </div>
       </div>
       
+      <div class="mpc-tool mpc-tool-rectangle">
+         <canvas></canvas>
+         <div class="mpc-caption">
+            rectangular shape
+         </div>
+      </div>
+      
       <div class="mpc-tool mpc-tool-heart">
          <canvas></canvas>
          <div class="mpc-caption">
             heart shape
+         </div>
+      </div>
+      
+       <div class="mpc-tool mpc-tool-youtube">
+         <img src="im/youtube-icon.png" alt="" width="120" height="80" style="border:0"/>
+         <div class="mpc-caption">
+            youtube video
          </div>
       </div>
       

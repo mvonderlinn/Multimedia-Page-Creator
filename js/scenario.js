@@ -1,28 +1,5 @@
-$(document).ready(function() {
-  
-   $('#mpc-colorpicker').ColorPicker({
-      color: '#ffffff',
-      onShow: function (colpkr) {
-         $(colpkr).fadeIn(500);
-         return false;
-      },
-      onHide: function (colpkr) {
-         $(colpkr).fadeOut(500);
-         return false;
-      },
-      onChange: function (hsb, hex, rgb) {
-         $('#mpc-colorpicker').text('#' + hex);
-         $('#mpc-canvas-container').css("background-color", '#' + hex);
-         return false;
-      }
-   });
-   
-   $("#mpc-properties").draggable();
-   
-   $(".mpc-tool").draggable();
-   $(".mpc-tool").resizable();
-   
-   $(".mpc-tool-line").each(function() {
+function initShapes() {
+$(".mpc-tool-line").each(function() {
       var canvasEl = $(this).children("canvas").get(0);
       canvasEl.width = 120;
       canvasEl.height = 80;
@@ -30,8 +7,8 @@ $(document).ready(function() {
       var ctx = canvasEl.getContext("2d");
       ctx.strokeStyle = "black";
       ctx.beginPath();
-      ctx.moveTo(5, 5);
-      ctx.lineTo(115, 75);
+      ctx.moveTo(15, 16);
+      ctx.lineTo(105, 65);
       ctx.stroke();
       
    });
@@ -43,14 +20,29 @@ $(document).ready(function() {
       
       var ctx = canvasEl.getContext("2d");
       ctx.strokeStyle = "black";
+      ctx.lineWidth = 1.0;
       ctx.beginPath();
-      ctx.arc(60,40,30,0,Math.PI*2,true);
+      ctx.arc(60, 40, 30, 0, Math.PI*2, true);
       ctx.stroke();
       
    });
    
+   $(".mpc-tool-rectangle").each(function() {
+      var canvasEl = $(this).children("canvas").get(0);
+      canvasEl.width = 120;
+      canvasEl.height = 80;
+      
+      var ctx = canvasEl.getContext("2d");
+      ctx.strokeStyle = "black";
+      ctx.lineWidth = 1.0;
+      ctx.beginPath();
+      ctx.rect(15.5,15.5,90,50);
+      ctx.stroke();      
+   });
+   
    $(".mpc-tool-heart").each(function() {
       var canvasEl = $(this).children("canvas").get(0);
+      
       canvasEl.width = 120;
       canvasEl.height = 80;
       
@@ -77,13 +69,65 @@ $(document).ready(function() {
    
    $(".mpc-tool-text").mouseup(function(ev) {
       ev.preventDefault();
+      $(this).attr("contenteditable", "true");
       $(".mpc-tool-text").focus();
    });
+   
+   $(".mpc-tool").draggable();
+   $(".mpc-tool").resizable();
+}
+
+$(document).ready(function() {
+  
+   $('#mpc-colorpicker').ColorPicker({
+      color: '#ffffff',
+      onShow: function (colpkr) {
+         $(colpkr).fadeIn(500);
+         return false;
+      },
+      onHide: function (colpkr) {
+         $(colpkr).fadeOut(500);
+         return false;
+      },
+      onChange: function (hsb, hex, rgb) {
+         $('#mpc-colorpicker').text('#' + hex);
+         $('#mpc-canvas-container').css("background-color", '#' + hex);
+         return false;
+      }
+   });
+   
+   $("#mpc-properties").draggable();
+      
+   initShapes();
+   
+   
 
 	$( "#mpc-canvas-container" ).droppable({
 			drop: function( event, ui ) {
+            if(!ui.draggable.hasClass("mpc-tool")) {
+               return;
+            }
+            
+            var htmlContent = '<div style="display: none"  class="new-element '
+                                 + ui.draggable.attr("class") 
+                                 + '">'
+                                 + ui.draggable.html()
+                                 + '</div>';
+
+            ui.draggable.parent().append(htmlContent);
+                                 
 				ui.draggable.removeClass("mpc-tool");
             ui.draggable.children(".mpc-caption").remove();
+            
+            initShapes();
+            
+            $(".new-element").show('fade', {duration:500}, function() {               
+               $(".new-element").draggable();
+               $(".new-element").resizable();
+               $(".new-element").removeClass("new-element");               
+               
+            });
+            
          }
 	});
    

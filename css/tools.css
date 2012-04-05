@@ -7,7 +7,7 @@
    z-index: 21;
 }
 
-.mpc-tool-youtube {
+.mpc-tool-hyperlink {
    position: absolute;
    top: 101px;
    left: 152px;
@@ -34,9 +34,27 @@
    z-index: 21;
 }
 
+.mpc-tool-rectangle {
+   position: absolute;
+   top: 331px;
+   left: 27px;
+   width: 120px;
+   height: 80px;   
+   z-index: 21;
+}
+
 .mpc-tool-heart {
    position: absolute;
    top: 331px;
+   left: 152px;
+   width: 120px;
+   height: 80px;   
+   z-index: 21;
+}
+
+.mpc-tool-youtube {
+   position: absolute;
+   top: 446px;
    left: 27px;
    width: 120px;
    height: 80px;   
