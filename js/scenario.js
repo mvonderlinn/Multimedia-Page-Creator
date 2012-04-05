@@ -1,5 +1,6 @@
 function initShapes() {
-$(".mpc-tool-line").each(function() {
+
+   $(".mpc-tool-line").each(function() {
       var canvasEl = $(this).children("canvas").get(0);
       canvasEl.width = 120;
       canvasEl.height = 80;
