@@ -74,7 +74,6 @@ $(".mpc-tool-line").each(function() {
    });
    
    $(".mpc-tool").draggable();
-   $(".mpc-tool").resizable();
 }
 
 $(document).ready(function() {
@@ -119,11 +118,13 @@ $(document).ready(function() {
 				ui.draggable.removeClass("mpc-tool");
             ui.draggable.children(".mpc-caption").remove();
             
+            ui.draggable.resizable();
+            
             initShapes();
             
             $(".new-element").show('fade', {duration:500}, function() {               
                $(".new-element").draggable();
-               $(".new-element").resizable();
+               
                $(".new-element").removeClass("new-element");               
                
             });
