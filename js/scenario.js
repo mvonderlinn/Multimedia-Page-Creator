@@ -103,35 +103,6 @@ $(document).ready(function() {
    
    
 
-	$( "#mpc-canvas-container" ).droppable({
-			drop: function( event, ui ) {
-            if(!ui.draggable.hasClass("mpc-tool")) {
-               return;
-            }
-            
-            var htmlContent = '<div style="display: none"  class="new-element '
-                                 + ui.draggable.attr("class") 
-                                 + '">'
-                                 + ui.draggable.html()
-                                 + '</div>';
-
-            ui.draggable.parent().append(htmlContent);
-                                 
-				ui.draggable.removeClass("mpc-tool");
-            ui.draggable.children(".mpc-caption").remove();
-            
-            ui.draggable.resizable();
-            
-            initShapes();
-            
-            $(".new-element").show('fade', {duration:500}, function() {               
-               $(".new-element").draggable();
-               
-               $(".new-element").removeClass("new-element");               
-               
-            });
-            
-         }
-	});
+	
    
 });

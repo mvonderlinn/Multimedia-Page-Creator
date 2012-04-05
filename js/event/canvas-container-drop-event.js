@@ -4,16 +4,22 @@ CanvasContainerDropEvent = {
 
    init: function() {
       PageLoadedEvent.subscribe(this);
+      
+      return this;
    },
    
    onPageLoaded: function() {
-      alert("binding");
+      $( "#mpc-canvas-container" ).droppable({
+         drop: function(ev, ui) {
+            CanvasContainerDropEvent.trigger(ui.draggable);
+         }
+      });
    },
    
-   trigger: function() {
+   trigger: function(draggable) {
       for(var oKey in this.listeners) {
          var obj = this.listeners[oKey];
-         obj.onCanvasContainerDrop(this);
+         obj.onCanvasContainerDrop(draggable);
       }
    },
    

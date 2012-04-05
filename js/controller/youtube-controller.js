@@ -1,3 +1,4 @@
 YoutubeController = {
-   
+   init: function() {
+   }
 }.init();
