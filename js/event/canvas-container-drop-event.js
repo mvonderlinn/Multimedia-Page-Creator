@@ -16,6 +16,9 @@ CanvasContainerDropEvent = {
       });
    },
    
+   /**
+    * ChainOfResponsibility
+    */
    trigger: function(draggable) {
       for(var oKey in this.listeners) {
          var obj = this.listeners[oKey];

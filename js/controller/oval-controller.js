@@ -1,7 +1,8 @@
 OvalController = {
    init: function() {
       PageLoadedEvent.subscribe(this);
-
+      CanvasContainerDropEvent.subscribe(this);
+      
       return this;      
    },
    
@@ -19,5 +20,15 @@ OvalController = {
          ctx.stroke();
          
       });
+      $(".mpc-tool-oval").draggable();
+   },
+   
+   onCanvasContainerDrop: function(domEl) {
+      if(domEl.hasClass("mpc-tool-oval")) {
+         domEl.removeClass("mpc-tool");
+         domEl.children(".mpc-caption").remove();
+         domEl.resizable();
+      }
    }
+   
 }.init();

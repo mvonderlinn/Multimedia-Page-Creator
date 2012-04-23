@@ -1,7 +1,14 @@
 PropertiesController = {
    init: function() {
+      PageLoadedEvent.subscribe(this);
+   
       return this;
    },
+   
+   onPageLoaded: function() {
+      $("#mpc-properties").hide();
+   },
+   
    onShowing: function() {
       $('#mpc-colorpicker').ColorPicker({
          color: '#ffffff',

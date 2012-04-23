@@ -1,6 +1,7 @@
 RectangleController = {
    init: function() {
       PageLoadedEvent.subscribe(this);
+      CanvasContainerDropEvent.subscribe(this);
 
       return this;      
    },
@@ -18,6 +19,15 @@ RectangleController = {
          ctx.rect(15.5,15.5,90,50);
          ctx.stroke();      
       });
+      $(".mpc-tool-rectangle").draggable();
+   },
+   
+   onCanvasContainerDrop: function(domEl) {
+      if(domEl.hasClass("mpc-tool-rectangle")) {
+         domEl.removeClass("mpc-tool");
+         domEl.children(".mpc-caption").remove();
+         domEl.resizable();
+      }   
    }
    
 }.init();

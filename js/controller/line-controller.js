@@ -1,6 +1,7 @@
 LineController = {
    init: function() {
       PageLoadedEvent.subscribe(this);
+      CanvasContainerDropEvent.subscribe(this);
 
       return this;
    },
@@ -19,5 +20,14 @@ LineController = {
          ctx.stroke();
          
       });
-   }
+      $(".mpc-tool-line").draggable();
+   },
+   
+   onCanvasContainerDrop: function(domEl) {
+      if(domEl.hasClass("mpc-tool-line")) {
+         domEl.removeClass("mpc-tool");
+         domEl.children(".mpc-caption").remove();
+         domEl.resizable();
+      }
+   }   
 }.init();

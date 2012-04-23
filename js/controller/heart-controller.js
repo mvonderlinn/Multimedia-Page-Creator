@@ -1,10 +1,12 @@
 HeartController = {
+   
    init: function() {
       PageLoadedEvent.subscribe(this);
+      CanvasContainerDropEvent.subscribe(this);
       
       return this;
    },
-   
+
    onPageLoaded: function() {
       $(".mpc-tool-heart").each(function() {
          var canvasEl = $(this).children("canvas").get(0);
@@ -32,5 +34,16 @@ HeartController = {
          
          
       });
+      
+      $(".mpc-tool-heart").draggable();
+   },
+
+   onCanvasContainerDrop: function(domEl) {
+      if(domEl.hasClass("mpc-tool-heart")) {
+         domEl.removeClass("mpc-tool");
+         domEl.children(".mpc-caption").remove();
+         domEl.resizable();
+      }
    }
+
 }.init();
