@@ -1,4 +1,4 @@
-Hyperlink = {
+HyperlinkController = {
    init: function() {
       PageLoadedEvent.subscribe(this);
       
