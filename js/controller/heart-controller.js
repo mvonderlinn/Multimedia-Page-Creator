@@ -8,6 +8,10 @@ HeartController = {
    },
 
    onPageLoaded: function() {
+      this.initIcon();
+   },
+   
+   initIcon: function() {
       $(".mpc-tool-heart").each(function() {
          var canvasEl = $(this).children("canvas").get(0);
          
@@ -31,11 +35,9 @@ HeartController = {
          ctx.bezierCurveTo(85,25,75,37,75,40);  
          
          ctx.stroke();
-         
-         
       });
       
-      $(".mpc-tool-heart").draggable();
+      $(".mpc-tool-heart").draggable();   
    },
 
    onCanvasContainerDrop: function(domEl) {
