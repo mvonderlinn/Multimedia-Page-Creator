@@ -4,16 +4,19 @@
  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"></meta>
  <title>Multimedia Page Creator</title>
  
+ <link rel="stylesheet" media="screen" type="text/css" href="css/ui.theme.css" />
  <link rel="stylesheet" media="screen" type="text/css" href="css/lib/jquery-ui-1.8.18.custom.css" />
  <link rel="stylesheet" media="screen" type="text/css" href="css/colorpicker.css" />
  <link rel="stylesheet" media="screen" type="text/css" href="css/styles.css" />
  <link rel="stylesheet" media="screen" type="text/css" href="css/tools.css" />
+ <link rel="stylesheet" media="screen" type="text/css" href="css/fg.menu.css" />
  
  <!-- libraries --> 
  
  <script type="text/javascript" src="js/lib/jquery-1.7.2.min.js"></script>
  <script type="text/javascript" src="js/lib/jquery-ui-1.8.18.custom.min.js"></script>
  <script type="text/javascript" src="js/lib/colorpicker.js"></script>
+ <script type="text/javascript" src="js/lib/fg.menu.js"></script>
 
  <!-- events --> 
 
@@ -45,18 +48,66 @@
       <div id="mpc-title-caption">...click and type to edit the title</div>
    </h1>
 
+   <div id="mpc-menu" style="position: absolute">
+      <a id="menu-file" href="#">
+         File
+      </a>
+
+      <div style="visibility: hidden">
+         <ul>
+            <li><a href="#">New Page</a></li>
+            <li><a href="#">Open Page</a></li>
+            <li><a href="#">Duplicate Page</a></li>
+            <li><a href="#">Delete Page</a></li>
+         </ul>
+      </div>
+
+      <a id="menu-edit" href="#">
+         Edit
+      </a>
+
+      <div style="visibility: hidden">
+         <ul>
+            <li><a href="#">Undo Ctrl + Z</a></li>
+            <li><a href="#">Redo Ctrl + Y</a></li>
+            <li>Object:</li>
+            <li><a href="#">Copy Ctrl + C</a></li>
+            <li><a href="#">Paste Ctrl + V</a></li>
+            <li><a href="#">Bring to Front</a></li>
+            <li><a href="#">Send back</a></li>
+            <li><a href="#">Group</a></li>
+            <li><a href="#">Ungroup</a></li>
+         </ul>
+      </div>
+
+      <a id="menu-page-settings" href="#">
+         Page Settings
+      </a>
+
+      <a id="menu-templates" href="#">
+         Templates
+      </a>
+
+      <a id="menu-preview-page" href="#">
+         Preview Page
+      </a>
+
+      <a id="menu-help" href="#">
+         Help
+      </a>   
+   </div>
    
    <div id="mpc-tools">
       
       <div class="mpc-tool mpc-tool-text">
-         <span>Abc...</span>
+         Abc...   
          <div class="mpc-caption"  contenteditable="false">
             optional text
          </div>
       </div>
       
       <div class="mpc-tool mpc-tool-hyperlink">
-         <a href="http://www.wikipedia.org/">link</a>
+         hyperlink
          <div class="mpc-caption">
             hyperlink
          </div>
@@ -84,6 +135,7 @@
       </div>
       
       <div class="mpc-tool mpc-tool-heart">
+         
          <canvas></canvas>
          <div class="mpc-caption">
             heart shape
