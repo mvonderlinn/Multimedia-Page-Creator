@@ -6,13 +6,10 @@ html, body {
    text-shadow: 0 1px #e0e0e0;
    -webkit-font-smoothing: subpixel-antialiased;
    -webkit-text-shadow: none;
-   
- 
 }
 
 * {
-   color: #383838;
-
+   color: black;
 }
 
 
@@ -68,19 +65,24 @@ h1 span:hover {
    text-align: center;
 }
 
-#mpc-canvas-wrapper{
+#mpc-canvas-wrapper {
+   position: absolute;
+
+   left: 180px;
+   top: 108px;
+
+   width: 788px;
+   height: 720px;
+
    margin: 0;
    margin-right: 25px;
+
    padding: 0;
-   display: inline-block;
-   vertical-align: top;   
-   width: 665px;
-   height: 720px;
+
    border: 1px solid red;
    border: 0;
-   overflow: auto;
-   position: relative;
-   z-index: 5;
+
+   overflow: auto;   
 }
 
 
@@ -90,38 +92,36 @@ h1 span:hover {
    margin-left: auto;
    margin-right: auto;
    background: white;
-   width: 650px;
+   width: 780px;
    height: 690px;
    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
    position: relative;
-   z-index: 5;
+   
 }
 
 .mpc-tool {
    background: -webkit-linear-gradient(top, #F9F9F9 50%, #F0F0F0 100%) repeat scroll 0 0 transparent;
    background: -moz-linear-gradient(top, #F9F9F9 50%, #F0F0F0 100%) repeat scroll 0 0 transparent;
-   
-   
-   
+
    border-radius: 4px 4px 4px 4px;
    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-   
+
    line-height: 80px;
    font-size: 20px;
-   
+
    position: relative;
    padding: 0;
    margin: 0;
    margin-left: auto;
    margin-right: auto;
    margin-bottom: 35px;
-   
+
    width: 120px;
    height: 80px;
-   
+
    vertical-align: top;
    display: inline-block;
-   
+
    cursor: pointer;
 
    -moz-transition: color 0.5s ease 0s;
@@ -129,7 +129,6 @@ h1 span:hover {
 }
 
 .mpc-tool:hover {
-
    border-color: #408DD2;
    color: #408DD2;
 }
@@ -137,18 +136,20 @@ h1 span:hover {
 #mpc-title-caption {
    font-size: 13px;
    color: #808080;
-
 }
 
 .mpc-tool .mpc-caption {
    position: absolute;
-   top: 55px;
+   top: 53px;
    left: 0;
-   width: 120px;
-   font-size: 13px;
-   color: #808080;
+   width: 70px;
+   font-size: 12px;
+   font-family: Arial;
+   color: black;
    text-align: center;
-   
+   margin: 0;
+   padding: 0;
+   line-height: 10px;
 }
 
 ul#mpc-menu {
@@ -316,5 +317,12 @@ table#mpc-properties-content tr:hover * {
    
    height: 30px;
    line-height: 30px;
+}
+
+.mpc-menu-header {
    
+}
+
+.ui-widget-content a {
+   color: black;
 }

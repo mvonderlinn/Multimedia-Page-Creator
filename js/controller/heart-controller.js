@@ -20,10 +20,10 @@ HeartController = {
          
          var ctx = canvasEl.getContext("2d");
          
-         var factor = 0.7;
+         var factor = 0.415;
          ctx.scale(factor, factor);
          ctx.lineWidth = 1/0.7;
-         ctx.translate(12, -15);
+         ctx.translate(12, -5);
          ctx.beginPath();  
          
          ctx.moveTo(75,40);  

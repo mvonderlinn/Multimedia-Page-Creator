@@ -16,7 +16,9 @@ RectangleController = {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 1.0;
          ctx.beginPath();
-         ctx.rect(15.5,15.5,90,50);
+
+         ctx.rect( 15.5, 15.5, 40, 30 );
+
          ctx.stroke();      
       });
       $(".mpc-tool-rectangle").draggable();

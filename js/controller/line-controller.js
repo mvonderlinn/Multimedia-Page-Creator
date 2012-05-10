@@ -15,8 +15,8 @@ LineController = {
          var ctx = canvasEl.getContext("2d");
          ctx.strokeStyle = "black";
          ctx.beginPath();
-         ctx.moveTo(15, 16);
-         ctx.lineTo(105, 65);
+         ctx.moveTo(15, 15);
+         ctx.lineTo(55, 45);
          ctx.stroke();
          
       });

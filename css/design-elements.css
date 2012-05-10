@@ -1,0 +1,163 @@
+* {
+   font-family: Arial;
+}
+
+#mpc-logo-im {
+   position: absolute;
+   padding: 0;
+   margin: 0;
+   top: 10px;
+   left: 18px;
+   width: 200px;
+   height: 40px;
+}
+
+.mpc-field-label {
+   font-weight: bold;
+   font-family: Arial;
+   font-size: 14px;
+}
+
+INPUT.mpc-field {
+   border: 0;
+   background-color: white;
+   font-size: 13px;
+   padding: 4px;
+}
+
+#mpc-page-title {
+   position: absolute;
+   left: 245px;
+   top: 18px;
+}
+
+#mpc-page-title input {
+   width: 220px;
+}
+
+#mpc-page-width {
+   position: absolute;
+   left: 592px;
+   top: 18px;
+}
+
+#mpc-page-width input {
+   width: 30px;
+}
+
+#mpc-page-height {
+   position: absolute;
+   left: 744px;
+   top: 18px;
+}
+
+#mpc-page-height input {
+   width: 30px;
+}
+
+#mpc-how-to-btn {
+   position: absolute;
+   left: 893px;
+   top: 18px;
+   width: 70px;
+   height: 58px;
+   line-height: 23px;
+   padding-top: 12px;
+   text-align: center;
+}
+
+
+#mpc-page-link {
+   position: absolute;
+   left: 500px;
+   top: 65px;
+}
+
+#mpc-page-link input {
+   width: 90px;
+}
+
+#mpc-embed-code {
+   position: absolute;
+   left: 690px;
+   top: 65px;
+}
+
+#mpc-embed-code input {
+   width: 83px;
+}
+
+#mpc-menu {
+   position: absolute;
+   left: 15px;
+   top: 65px;
+   margin-top: 1px;
+   padding-top: 4px;
+   background: -webkit-linear-gradient(top, #F9F9F9 50%, #F0F0F0 100%) repeat scroll 0 0 transparent;
+   background: -moz-linear-gradient(top, #F9F9F9 50%, #F0F0F0 100%) repeat scroll 0 0 transparent;
+   border-radius: 4px 4px 4px 4px;
+   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+   height: 20px;
+   width: 450px;
+}
+
+.mpc-menu-heading {
+   float: left;
+   margin-left: 15px;
+   font-size: 14px;
+   font-weight: bold;
+   text-decoration: none;
+}
+
+.mpc-menu-heading.fg-menu-open.ui-state-active {
+   border: 0;
+   margin: 0;
+   margin-left: 15px;
+   padding: 0;
+   background: none;
+   color: #408DD2;
+}
+
+.ui-corner-all.ui-state-hover {
+   border: 0;
+   margin: 1px;
+   background: none;
+   padding: 0;
+   color: #408DD2;
+}
+
+.ui-widget {
+   font-size: 15px;
+}
+
+.ui-icon-closethick {
+   float: right;
+}
+
+#mpc-page-background-btn {
+   position: absolute;
+   top: 455px;
+   left: 25px;
+   text-decoration: none;
+   font-size: 14px;
+   background: -webkit-linear-gradient(top, #F9F9F9 50%, #F0F0F0 100%) repeat scroll 0 0 transparent;
+   background: -moz-linear-gradient(top, #F9F9F9 50%, #F0F0F0 100%) repeat scroll 0 0 transparent;
+   font-weight: bold;
+   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+   padding: 3px;
+   padding-left: 5px;
+   padding-right: 5px;
+   border-radius: 3px 3px 3px 3px;
+}
+
+#mpc-select-ico {
+   position: absolute;
+   top: 500px;
+   left: 70px;
+   cursor: pointer;
+}
+
+#mpc-page-background-dlg {
+   text-align: center;
+   padding-top: 25px;
+}

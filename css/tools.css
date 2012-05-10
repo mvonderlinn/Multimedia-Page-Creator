@@ -1,62 +1,77 @@
+#mpc-tool-label {
+   position: absolute;
+   left: 37px;
+   top: 108px;
+   font-weight: bold;
+   font-size: 14px;
+   color: black;
+}
+
 .mpc-tool-text {
    position: absolute;
-   top: 101px;
-   left: 27px;
-   width: 120px;
-   height: 80px;
-   z-index: 21;
+   top: 131px;
+   left: 15px;
+   width: 70px;
+   height: 70px;
+   line-height: 67px;
+   font-size: 15px;   
 }
 
 .mpc-tool-hyperlink {
    position: absolute;
-   top: 101px;
-   left: 152px;
-   width: 120px;
-   height: 80px;   
-   z-index: 21;
+   top: 131px;
+   left: 94px;
+   width: 70px;
+   height: 70px;
+   line-height: 67px;
+   font-size: 15px;
 }
 
 .mpc-tool-line {
    position: absolute;
-   top: 216px;
-   left: 27px;
-   width: 120px;
-   height: 80px;   
-   z-index: 21;
+   top: 210px;
+   left: 15px;
+   width: 70px;
+   height: 70px;
 }
 
 .mpc-tool-oval {
    position: absolute;
-   top: 216px;
-   left: 152px;
-   width: 120px;
-   height: 80px;   
-   z-index: 21;
+   top: 210px;
+   left: 94px;
+   width: 70px;
+   height: 70px;
 }
 
 .mpc-tool-rectangle {
    position: absolute;
-   top: 331px;
-   left: 27px;
-   width: 120px;
-   height: 80px;   
-   z-index: 21;
+   top: 288px;
+   left: 15px;
+   width: 70px;
+   height: 70px;
 }
 
 .mpc-tool-heart {
    position: absolute;
-   top: 331px;
-   left: 152px;
-   width: 120px;
-   height: 80px;   
-   z-index: 21;
+   top: 288px;
+   left: 94px;
+   width: 70px;
+   height: 70px;
 }
 
 .mpc-tool-youtube {
    position: absolute;
-   top: 446px;
-   left: 27px;
-   width: 120px;
-   height: 80px;   
-   z-index: 21;
+   top: 365px;
+   left: 15px;
+
+   width: 70px;
+   height: 70px;
+}
+
+.mpc-tool-pdf {
+   position: absolute;
+   top: 365px;
+   left: 94px;
+   width: 70px;
+   height: 70px;
 }

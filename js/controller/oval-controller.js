@@ -16,7 +16,7 @@ OvalController = {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 1.0;
          ctx.beginPath();
-         ctx.arc(60, 40, 30, 0, Math.PI*2, true);
+         ctx.arc(35, 30, 20, 0, Math.PI*2, true);
          ctx.stroke();
          
       });

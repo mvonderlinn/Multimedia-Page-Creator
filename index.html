@@ -10,11 +10,12 @@
  <link rel="stylesheet" media="screen" type="text/css" href="css/styles.css" />
  <link rel="stylesheet" media="screen" type="text/css" href="css/tools.css" />
  <link rel="stylesheet" media="screen" type="text/css" href="css/fg.menu.css" />
+ <link rel="stylesheet" media="screen" type="text/css" href="css/design-elements.css" />
  
  <!-- libraries --> 
  
  <script type="text/javascript" src="js/lib/jquery-1.7.2.min.js"></script>
- <script type="text/javascript" src="js/lib/jquery-ui-1.8.18.custom.min.js"></script>
+ <script type="text/javascript" src="js/lib/jquery-ui-1.8.20.custom.min.js"></script>
  <script type="text/javascript" src="js/lib/colorpicker.js"></script>
  <script type="text/javascript" src="js/lib/fg.menu.js"></script>
 
@@ -43,17 +44,53 @@
 
 <div id="mpc-content">
 
-   <h1>
-      <span contenteditable="true">Brand new title for a web-page</span>
-      <div id="mpc-title-caption">...click and type to edit the title</div>
-   </h1>
+   <img src="im/logo.png" id="mpc-logo-im" width="200" height="40" alt="Multimedia Page Creator" />
+   
+   <div id="mpc-page-title">
+      <span class="mpc-field-label">Page Title: </span>
+      <input type="text" id="mpc-page-title-field" class="mpc-field" name="mpc-page-title-field" value="My Awesome Page" />
+   </div>
+   
+   <div id="mpc-page-width">
+      <span class="mpc-field-label">Page Width: </span>
+      <input type="text" id="mpc-page-width-field" class="mpc-field" name="mpc-page-width-field" value="800" />
+   </div>
 
-   <div id="mpc-menu" style="position: absolute">
-      <a id="menu-file" href="#">
+   <div id="mpc-page-height">
+      <span class="mpc-field-label">Page Height: </span>
+      <input type="text" id="mpc-page-height-field" class="mpc-field" name="mpc-page-height-field" value="690" />
+   </div>
+
+   <div id="mpc-page-link">
+      <span class="mpc-field-label">Page Link: </span>
+      
+      <input type="text" id="mpc-page-link-field" class="mpc-field" name="mpc-page-link-field" value="#" />
+   </div>
+
+   <div id="mpc-embed-code">
+      <span class="mpc-field-label">Embed Code: </span>
+      <input type="text" id="mpc-embed-code-field" class="mpc-field" name="mpc-embed-code-field" value="html..." />
+   </div>
+   
+   <div id="mpc-page-title" style="visibility: hidden">
+      <span class="mpc-field-label">Page Height: </span>
+      <input type="text" id="mpc-page-height-field" class="mpc-field" name="mpc-page-height-field" value="My Awesome Page" />
+   </div>
+
+   <div class="mpc-tool" id="mpc-how-to-btn">
+      HowTo Video         
+   </div>
+
+   <a href="#" id="mpc-page-background-btn">Page Background</a>
+
+   <img src="im/select-icon.png" id="mpc-select-ico" width="35" height="48" alt="select" />
+   
+   <div id="mpc-menu">
+      <a id="mpc-menu-file" class="mpc-menu-heading" href="#">
          File
       </a>
 
-      <div style="visibility: hidden">
+      <div style="display: none;">
          <ul>
             <li><a href="#">New Page</a></li>
             <li><a href="#">Open Page</a></li>
@@ -62,11 +99,11 @@
          </ul>
       </div>
 
-      <a id="menu-edit" href="#">
+      <a id="mpc-menu-edit" class="mpc-menu-heading" href="#">
          Edit
       </a>
-
-      <div style="visibility: hidden">
+      
+      <div style="display: none;">
          <ul>
             <li><a href="#">Undo Ctrl + Z</a></li>
             <li><a href="#">Redo Ctrl + Y</a></li>
@@ -80,89 +117,114 @@
          </ul>
       </div>
 
-      <a id="menu-page-settings" href="#">
+      <a id="mpc-menu-page-settings" class="mpc-menu-heading" href="#">
          Page Settings
       </a>
-
-      <a id="menu-templates" href="#">
+      
+      <div style="display: none;">
+         <ul>
+            <li><a href="#">Sizes</a></li>
+         </ul>
+      </div>
+         
+      <a id="mpc-menu-templates" class="mpc-menu-heading" href="#">
          Templates
       </a>
+      
+      <div style="display: none;">
+         <ul>
+            <li><a href="#">First</a></li>
+         </ul>
+      </div>
 
-      <a id="menu-preview-page" href="#">
+      <a id="mpc-menu-preview-page" class="mpc-menu-heading" href="#">
          Preview Page
       </a>
-
-      <a id="menu-help" href="#">
+      
+      <div style="display: none;">
+         <ul>
+            <li><a href="#">Preview</a></li>
+         </ul>
+      </div>
+      
+      <a id="mpc-menu-help" class="mpc-menu-heading" href="#">
          Help
-      </a>   
+      </a>
+      
+      <div style="display: none;">
+         <ul>
+            <li><a href="#">About</a></li>
+         </ul>
+      </div>
+      
    </div>
    
-   <div id="mpc-tools">
+   <div id="mpc-tools" >
+      
+      <div id="mpc-tool-label">Drag to canvas...</div>
       
       <div class="mpc-tool mpc-tool-text">
          Abc...   
          <div class="mpc-caption"  contenteditable="false">
-            optional text
+            text
          </div>
       </div>
       
       <div class="mpc-tool mpc-tool-hyperlink">
          hyperlink
          <div class="mpc-caption">
-            hyperlink
+            link
          </div>
       </div>
 
       <div class="mpc-tool mpc-tool-line">
          <canvas></canvas>
          <div class="mpc-caption">
-            line shape
+            line
          </div>
       </div>
       
       <div class="mpc-tool mpc-tool-oval">
          <canvas></canvas>
          <div class="mpc-caption">
-            oval shape
+            oval
          </div>
       </div>
       
       <div class="mpc-tool mpc-tool-rectangle">
          <canvas></canvas>
          <div class="mpc-caption">
-            rectangular shape
+            rectangle
          </div>
       </div>
       
       <div class="mpc-tool mpc-tool-heart">
-         
          <canvas></canvas>
          <div class="mpc-caption">
-            heart shape
+            heart
          </div>
       </div>
       
-       <div class="mpc-tool mpc-tool-youtube">
-         <img src="im/youtube-icon.png" alt="" width="120" height="80" style="border:0"/>
+      <div class="mpc-tool mpc-tool-youtube">
+         <img src="im/youtube-icon.png" alt="" width="50" height="21" style="border:0"/>
          <div class="mpc-caption">
-            youtube video
+            video
+         </div>
+      </div>
+      
+      <div class="mpc-tool mpc-tool-pdf">
+         <img src="im/pdf-icon.png" alt="" width="35" height="35" style="border:0"/>
+         <div class="mpc-caption">
+            document
          </div>
       </div>
       
    </div>
 
    <div id="mpc-canvas-wrapper">
-      <div id="mpc-canvas-container">
-      </div>
+      <div id="mpc-canvas-container"></div>
    </div>
    
-   <ul id="mpc-menu">
-      <li>Save</li>
-      <li>Open</li>
-      <li>Undo</li>
-      <li>Redo</li>
-      <li>Logout</li>
-   </ul>
    
    <div id="mpc-properties">
       <h2>Canvas Properties</h2>
@@ -182,7 +244,7 @@
        
        <tr>
          <td>bgcolor</td>
-         <td><span style="position:relative" contenteditable="true" id="mpc-colorpicker">#ffffff</span></td>         
+         <td><span style="position:relative" id="mpc-colorpicker">#ffffff</span></td>         
          
        </tr>
        
@@ -191,6 +253,13 @@
    
 </div>
 
+<div id="mpc-howto-video-dlg" style="display: none" title="HowTo Video">
+   <iframe width="560" height="315" src="http://www.youtube.com/embed/V9Hl63jhW8U" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div id="mpc-page-background-dlg" style="display: none" title="Page Background">
+   Background color: <input type="text" value="#ffffff" id="mpc-page-background-field" name="mpc-page-background-field" />
+</div>
 
 </body>
 </html>
