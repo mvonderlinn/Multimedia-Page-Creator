@@ -161,3 +161,7 @@ INPUT.mpc-field {
    text-align: center;
    padding-top: 25px;
 }
+
+.ui-resizable-handle {
+   border: 1px solid red;
+}

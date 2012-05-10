@@ -17,11 +17,25 @@ TextController = {
    },
    
    onCanvasContainerDrop: function(domEl) {
+   
       if(domEl.hasClass("mpc-tool-text")) {
          domEl.removeClass("mpc-tool");
          domEl.children(".mpc-caption").remove();
-         domEl.resizable();
+         domEl.css("line-height", "16px");
+         domEl.css("overflow", "hidden");
+         domEl.resizable({
+            ghost: false,
+            grid: false,
+            helper: false,
+            handles: "n, e, s, w"
+            
+         });
+         
+         domEl.draggable({
+            containment: $("#mpc-canvas-container")
+         });
       }   
+   
    }
    
 }.init();
