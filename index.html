@@ -257,8 +257,88 @@
    <iframe width="560" height="315" src="http://www.youtube.com/embed/V9Hl63jhW8U" frameborder="0" allowfullscreen></iframe>
 </div>
 
-<div id="mpc-page-background-dlg" style="display: none" title="Page Background">
-   Background color: <input type="text" value="#ffffff" id="mpc-page-background-field" name="mpc-page-background-field" />
+<div id="mpc-text-dlg" style="display: none" title="Text properties">
+   <table>
+ <tr>
+      <td>
+         Font family:
+      </td>
+      <td>
+         <select id="mpc-text-font-family-sel">
+            <option value="Arial">Arial</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Garamond">Garamond</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Tahoma">Tahoma</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Verdana">Verdana</option>
+         </select>
+      </td>
+   </tr>     
+   <tr>
+      <td>
+         Font size:
+      </td>
+      <td>
+         <select id="mpc-text-font-size-sel">
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14" selected="selected">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="18">18</option>
+            <option value="20">20</option>
+            <option value="22">22</option>
+            <option value="24">24</option>
+            <option value="28">28</option>
+            <option value="32">32</option>
+            <option value="36">36</option>
+            <option value="40">40</option>
+            <option value="44">44</option>
+            <option value="48">48</option>
+            <option value="72">72</option>
+         </select>      
+      </td>
+   </tr>
+   <tr>
+      <td>
+         Align:
+      </td>
+      <td>
+         <select id="mpc-text-align-sel">
+            <option value="left">left</option>
+            <option value="center" selected="selected">center</option>            
+            <option value="justify">justify</option>            
+            <option value="right">right</option>            
+         </select>      
+      </td>
+   </tr>   
+   <tr>
+      <td>
+         Color:
+      </td>
+      <td>
+         <input type="text" value="000000" id="mpc-text-color-field" name="mpc-text-color-field" />
+      </td>
+   </tr>
+   <tr>
+      <td>
+         Rotate (degree):
+      </td>
+      <td>
+         <input type="text" value="0" id="mpc-text-rotate-deg" name="mpc-text-rotate-deg" />
+      </td>
+   </tr>
+   <tr>
+   <td colspan="2">
+      <input type="button" value="ok" id="mpc-text-ok-btn" name="mpc-text-ok-btn" />
+   </td>
+   </tr>
+   </table>
 </div>
 
 </body>

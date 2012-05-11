@@ -170,15 +170,15 @@
 }
 
 .colorpicker {
-   z-index: 22;
+   z-index: 10022;
 }
 
 .colorpicker * {
-  z-index: 22;
+  z-index: 10022;
 }
 
 .colorpickerwrapper {
-  z-index: 21;
+  z-index: 10021;
 }
 
 .colorpicker_color,
