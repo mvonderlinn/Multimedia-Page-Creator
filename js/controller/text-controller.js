@@ -9,13 +9,7 @@ TextController = {
    },
    
    onPageLoaded: function() {
-      $(".mpc-tool-text").mouseup(function(ev) {
-         ev.preventDefault();
-         $(this).attr("contenteditable", "true");
-         $(".mpc-tool-text").focus();
-      });
-      
-      $(".mpc-tool-text").draggable();
+      TextController.initToolIcon();
       
       $("#mpc-text-ok-btn").on("click", function(){
                   
@@ -29,6 +23,21 @@ TextController = {
          
          $("#mpc-text-dlg").dialog( "close" );
       });
+      
+      $("#mpc-text-color-field").ColorPicker( {
+            onChange: function(col, inRgb) {
+               $("#mpc-text-color-field").val(inRgb);
+            
+      }});
+   },
+   
+   initToolIcon: function() {
+      $(".mpc-tool-text").mouseup(function(ev) {
+         ev.preventDefault();
+         $(".mpc-tool-text").focus();
+      });
+      
+      $(".mpc-tool-text").draggable();
    },
    
    onCanvasContainerDrop: function(domEl) {
@@ -42,12 +51,26 @@ TextController = {
 
          domEl.removeClass("mpc-tool");
          domEl.children(".mpc-caption").remove();
+         
          domEl.detach();
          domEl.appendTo("#mpc-canvas-container");
+         
+         domEl.attr("contenteditable", "true");
+         
+         /**
+          * Positioning
+          */
+         var topUpdated = domEl.position().top - $("#mpc-canvas-wrapper").position().top;
+         var leftUpdated = domEl.position().left - $("#mpc-canvas-wrapper").position().left;
+         
+         domEl.css("top", topUpdated + "px");
+         domEl.css("left", leftUpdated + "px");
          
          domEl.css("line-height", "16px");
          domEl.css("overflow", "hidden");
          domEl.css("text-shadow", "none");
+         domEl.css("text-align", "center");
+         domEl.css("padding", "3px");
          
          domEl.resizable({
             ghost: false,
@@ -63,13 +86,15 @@ TextController = {
          domEl.dblclick(function() {
             $("#mpc-text-dlg").dialog({modal: true});
          });
+
+         domEl.on("mousedown", function() {
+            TextController.activeElement = domEl;
+         });
          
-         $("#mpc-text-color-field").ColorPicker( {
-            onChange: function(col, inRgb) {
-               $("#mpc-text-color-field").val(inRgb);
-            
-            }});
-      }   
+         $('<div class="mpc-tool mpc-tool-text">Abc...<div class="mpc-caption"  contenteditable="false">text</div></div>').appendTo("#mpc-tools");
+         
+         TextController.initToolIcon();
+      }
    }
    
 }.init();
