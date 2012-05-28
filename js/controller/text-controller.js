@@ -84,10 +84,14 @@ TextController = {
          });
 
          domEl.dblclick(function() {
+            
             $("#mpc-text-dlg").dialog({modal: true});
          });
 
          domEl.on("mousedown", function() {
+            
+            
+            
             TextController.activeElement = domEl;
          });
          

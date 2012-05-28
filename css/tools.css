@@ -24,8 +24,6 @@
    left: 94px;
    width: 70px;
    height: 70px;
-   line-height: 67px;
-   font-size: 15px;
 }
 
 .mpc-tool-line {
@@ -60,18 +58,34 @@
    height: 70px;
 }
 
-.mpc-tool-youtube {
+.mpc-tool-triangle {
    position: absolute;
    top: 365px;
    left: 15px;
-
    width: 70px;
+
    height: 70px;
 }
 
 .mpc-tool-pdf {
    position: absolute;
    top: 365px;
+   left: 94px;
+   width: 70px;
+   height: 70px;
+}
+
+.mpc-tool-image {
+   position: absolute;
+   top: 443px;
+   left: 15px;
+   width: 70px;
+   height: 70px;
+}
+
+.mpc-tool-youtube {
+   position: absolute;
+   top: 443px;
    left: 94px;
    width: 70px;
    height: 70px;

@@ -136,7 +136,7 @@ INPUT.mpc-field {
 
 #mpc-page-background-btn {
    position: absolute;
-   top: 455px;
+   top: 535px;
    left: 25px;
    text-decoration: none;
    font-size: 14px;
@@ -152,7 +152,7 @@ INPUT.mpc-field {
 
 #mpc-select-ico {
    position: absolute;
-   top: 500px;
+   top: 570px;
    left: 70px;
    cursor: pointer;
 }
