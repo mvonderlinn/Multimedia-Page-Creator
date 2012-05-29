@@ -4,6 +4,7 @@ TextController = {
    init: function() {
       PageLoadedEvent.subscribe(this);
       CanvasContainerDropEvent.subscribe(this);
+      CanvasElementSelectedEvent.subscribe(this);
 
       return this;
    },
@@ -13,11 +14,12 @@ TextController = {
       
       $("#mpc-text-ok-btn").on("click", function(){
                   
-         TextController.activeElement.css("font-family", $("#mpc-text-font-family-sel").val() );
-         TextController.activeElement.css("font-size", $("#mpc-text-font-size-sel").val() +"px" );
-         TextController.activeElement.css("line-height", $("#mpc-text-font-size-sel").val() +"px" );
-         TextController.activeElement.css("color", "#" + $("#mpc-text-color-field").val() );
-         TextController.activeElement.css("text-align", $("#mpc-text-align-sel").val() );
+         TextController.activeElement.children("textarea").css("font-family", $("#mpc-text-font-family-sel").val() );
+         TextController.activeElement.children("textarea").css("font-size", $("#mpc-text-font-size-sel").val() +"px" );
+         TextController.activeElement.children("textarea").css("line-height", $("#mpc-text-font-size-sel").val() +"px" );
+         TextController.activeElement.children("textarea").css("color", "#" + $("#mpc-text-color-field").val() );
+         TextController.activeElement.children("textarea").css("text-align", $("#mpc-text-align-sel").val() );
+         
          TextController.activeElement.css("-moz-transform", "rotate(" + parseInt($("#mpc-text-rotate-deg").val()) + "deg)");
          TextController.activeElement.css("-webkit-transform", "rotate(" + parseInt($("#mpc-text-rotate-deg").val()) + "deg)");
          
@@ -29,6 +31,11 @@ TextController = {
                $("#mpc-text-color-field").val(inRgb);
             
       }});
+   },
+   
+   createNewToolIcon: function() {
+      $('<div class="mpc-tool mpc-tool-text">Abc...<div class="mpc-caption"  contenteditable="false">text</div></div>').appendTo("#mpc-tools");
+      TextController.initToolIcon();
    },
    
    initToolIcon: function() {
@@ -55,7 +62,7 @@ TextController = {
          domEl.detach();
          domEl.appendTo("#mpc-canvas-container");
          
-         domEl.attr("contenteditable", "true");
+         
          
          /**
           * Positioning
@@ -89,16 +96,20 @@ TextController = {
          });
 
          domEl.on("mousedown", function() {
-            
-            
-            
-            TextController.activeElement = domEl;
+            CanvasElementSelectedEvent.trigger(domEl)
          });
          
-         $('<div class="mpc-tool mpc-tool-text">Abc...<div class="mpc-caption"  contenteditable="false">text</div></div>').appendTo("#mpc-tools");
-         
-         TextController.initToolIcon();
+         TextController.createNewToolIcon();
       }
-   }
+   },
    
+   onCanvasElementSelected: function(domEl) {
+
+      if( domEl.hasClass("mpc-tool-text") ) {
+
+         TextController.activeElement = domEl;
+      }
+
+   }
+
 }.init();
