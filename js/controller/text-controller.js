@@ -2,9 +2,15 @@ TextController = {
    
    activeElement: null,
    
+   nextId: 1,
+   
    init: function() {
+      
       PageLoadedEvent.subscribe(this);
       CanvasContainerDropEvent.subscribe(this);
+      /**
+       * triggers
+       */
       CanvasElementSelectedEvent.subscribe(this);
       EditCanvasElementEvent.subscribe(this);
 
@@ -12,7 +18,7 @@ TextController = {
    },
    
    onPageLoaded: function() {
-      TextController.initToolIcon();
+      TextController.createNewToolIcon();
       
       $("#mpc-text-ok-btn").bind("click", function(){
          TextController.applyDialogProperties();
@@ -25,7 +31,13 @@ TextController = {
       }});
    },
    
+   createNewToolIcon: function() {
+      $('<div class="mpc-tool mpc-tool-text"><textarea>Abc...</textarea><div class="mpc-caption" >text</div></div>').appendTo("#mpc-tools");
+      $(".mpc-tool.mpc-tool-text").draggable();
+   },
+   
    applyDialogProperties: function() {
+   
          TextController.activeElement.children("textarea").css("font-family", $("#mpc-text-font-family-sel").val() );
          TextController.activeElement.children("textarea").css("font-size", $("#mpc-text-font-size-sel").val() +"px" );
          TextController.activeElement.children("textarea").css("line-height", $("#mpc-text-font-size-sel").val() +"px" );
@@ -35,37 +47,15 @@ TextController = {
          TextController.activeElement.css("-moz-transform", "rotate(" + parseInt($("#mpc-text-rotate-deg").val()) + "deg)");
          TextController.activeElement.css("-webkit-transform", "rotate(" + parseInt($("#mpc-text-rotate-deg").val()) + "deg)");
          
-         $("#mpc-text-dlg").dialog( "close" );   
-   },
-   
-   createNewToolIcon: function() {
-      $('<div class="mpc-tool mpc-tool-text">Abc...<div class="mpc-caption"  contenteditable="false">text</div></div>').appendTo("#mpc-tools");
-      TextController.initToolIcon();
-   },
-   
-   initToolIcon: function() {
-      $(".mpc-tool-text").mouseup(function(ev) {
-         ev.preventDefault();
-         $(".mpc-tool-text").focus();
-      });
-      
-      $(".mpc-tool-text").draggable();
-   },
-   
-   onCanvasContainerDrop: function(domEl) {
-   
-      if(domEl.hasClass("mpc-tool-text") && !domEl.hasClass("ui-resizable") ) {
-         
-         TextController.activeElement = domEl;
-         
-         TextController.initCanvasElement(domEl);
-         
-         TextController.bindEvHandlersTo(domEl);
+         var textareaWidth = TextController.activeElement.css( "width" );
+         var textareaHeight = TextController.activeElement.css( "height" );
 
-         TextController.createNewToolIcon();
-      }
+         TextController.activeElement.children("textarea").css( "width", textareaWidth );
+         TextController.activeElement.children("textarea").css( "height", textareaHeight );
+         
+         // $("#mpc-text-dlg").dialog( "close" );
    },
-
+   
    onCanvasElementSelected: function(domEl) {
 
       if( domEl.hasClass("mpc-tool-text") ) {
@@ -77,13 +67,47 @@ TextController = {
    onEditCanvasElement: function(domEl) {
       if( domEl.hasClass("mpc-tool-text") ) {
 
-         alert("edit yes");
-         $("#mpc-text-dlg").dialog({modal: true});
+         var fontSize = parseInt(TextController.activeElement.children("textarea").css("fontSize"));
+         $(".mpc-text-font-size-sel option").removeAttr( "selected" );
+         $(".mpc-text-font-size-sel option[value=" + fontSize + "]").attr( "selected", "selected" );
+         
+         var fontFamily = TextController.activeElement.children("textarea").css("fontFamily");
+         $(".mpc-text-font-family-sel option").removeAttr( "selected" );
+         $(".mpc-text-font-family-sel option[value=" + fontFamily + "]").attr( "selected", "selected" );
+
+         var align = TextController.activeElement.children("textarea").css("textAlign");
+         $(".mpc-text-align-sel option").removeAttr( "selected" );
+         $(".mpc-text-align-sel option[value=" + align + "]").attr( "selected", "selected" );
+
+         var color = TextController.activeElement.children("textarea").css("color").replace("#", "");
+         $(".mpc-text-color-field").val( color );
+         
+         var rotate = parseInt(TextController.activeElement.css("-moz-transform") );
+         $(".mpc-text-rotate-deg").val( rotate );
+         
+         // $("#mpc-text-dlg").dialog( { modal: true } );
+
+      }
+   },
+   
+   onCanvasContainerDrop: function(domEl) {
+   
+      if ( domEl.hasClass("mpc-tool-text") && !domEl.hasClass("ui-resizable") ) {
+         
+         TextController.activeElement = domEl;
+         
+         domEl.attr( "id", "text" + TextController.nextId ++ );
+         
+         TextController.initCanvasElement(domEl);
+         
+         TextController.bindEvHandlersTo(domEl);
+
+         TextController.createNewToolIcon();
       }
    },
 
    initCanvasElement: function(domEl) {
-      $("#mpc-text-dlg").dialog({modal: true});
+      // $("#mpc-text-dlg").dialog({modal: true});
 
       domEl.removeClass("mpc-tool");
       domEl.children(".mpc-caption").remove();
@@ -108,24 +132,25 @@ TextController = {
       domEl.css("padding", "3px");
 
       domEl.resizable({
-         ghost: false,
-         grid: false,
-         helper: false,
-         handles: "n, e, s, w"
+         handles: "n, e, s, w",
+         containment: "#mpc-canvas-container"
       });
 
       domEl.draggable({
-         containment: $("#mpc-canvas-container")
+         containment: "#mpc-canvas-container"
       });   
    },
 
    bindEvHandlersTo: function(domEl) {
-      domEl.dblclick(function() {
-          CanvasElementSelectedEvent.trigger(domEl)            
+      var domEl = TextController.activeElement;
+      
+      domEl.dblclick(function(ev) {
+         alert( "dom element" + TextController.activeElement.id );
+         EditCanvasElementEvent.trigger( domEl );
       });
 
       domEl.bind("mousedown", function(ev) {
-         CanvasElementSelectedEvent.trigger(domEl)
+         CanvasElementSelectedEvent.trigger( this );
       });      
    }
 

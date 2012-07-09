@@ -20,6 +20,7 @@ LineController = {
          ctx.stroke();
          
       });
+
       $(".mpc-tool-line").draggable();
    },
    
@@ -29,5 +30,6 @@ LineController = {
          domEl.children(".mpc-caption").remove();
          domEl.resizable();
       }
-   }   
+   }
+
 }.init();

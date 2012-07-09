@@ -22,7 +22,9 @@ CanvasContainerDropEvent = {
    trigger: function(draggable) {
       for(var oKey in this.listeners) {
          var obj = this.listeners[oKey];
-         obj.onCanvasContainerDrop(draggable);
+         if("onCanvasContainerDrop" in obj) {
+            obj.onCanvasContainerDrop(draggable);
+         }
       }
    },
    

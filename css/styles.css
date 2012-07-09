@@ -330,4 +330,5 @@ table#mpc-properties-content tr:hover * {
    background: none;
    border: none;
    resize: none;
+   overflow: hidden;
 }
