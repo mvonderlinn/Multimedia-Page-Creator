@@ -8,19 +8,28 @@ OvalController = {
    
    onPageLoaded: function() {
       $(".mpc-tool-oval").each(function() {
-         var canvasEl = $(this).children("canvas").get(0);
-         canvasEl.width = 120;
-         canvasEl.height = 80;
-         
-         var ctx = canvasEl.getContext("2d");
-         ctx.strokeStyle = "black";
-         ctx.lineWidth = 1.0;
-         ctx.beginPath();
-         ctx.arc( 35, 30, 20, 0, Math.PI*2, true );
-         ctx.stroke();
-         
+         OvalController.paint( this );
       });
       $(".mpc-tool-oval").draggable();
+   },
+   
+   paint: function(domEl) {
+      var canvasEl = $(domEl).children("canvas").get(0);
+      
+      canvasEl.width = $(domEl).width(); 
+      canvasEl.height = $(domEl).height();
+      
+      var ctx = canvasEl.getContext("2d");
+      ctx.strokeStyle = "black";
+      ctx.lineWidth = 1.0;
+      ctx.beginPath();
+      var smallerSize = canvasEl.width < canvasEl.height ? canvasEl.width : canvasEl.height,
+          x = parseInt( canvasEl.width / 2),
+          y = parseInt( canvasEl.height / 2),
+          radius = parseInt( smallerSize / 2) - 10;
+          
+      ctx.arc( x, y, radius, 0, Math.PI*2, true );
+      ctx.stroke();   
    },
    
    onCanvasContainerDrop: function(domEl) {
@@ -54,7 +63,7 @@ OvalController = {
         handles: "n, e, s, w",
         containment: "#mpc-canvas-container",
         resize: function(event, ui) {
-           console.log(this);
+           OvalController.paint( this );
         }
      });
 
