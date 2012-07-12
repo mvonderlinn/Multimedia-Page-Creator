@@ -48,9 +48,11 @@ OvalController = {
     */
    onCanvasElementSelected: function( domEl ) {
 
-      if( $(domEl).hasClass("mpc-tool-oval") ) {
-         $(".mpc-tool-oval").removeClass("mpc-active-el");
-         $(domEl).addClass("mpc-active-el");
+      if( $(domEl).hasClass( "mpc-tool-oval" ) ){
+         $(".mpc-tool-oval").removeClass( "mpc-active-el" );
+         $(".mpc-tool-oval").resizable( "destroy" );
+         $(domEl).addClass( "mpc-active-el" );
+         this.enableResizing( $(domEl) );
       }
 
    },
