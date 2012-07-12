@@ -22,7 +22,12 @@ OvalController = {
       $(".mpc-tool-oval").each(function() {
          OvalController.paint( this );
       });
-      $(".mpc-tool-oval").draggable();
+      $(".mpc-tool-oval").draggable({
+         revert: true,
+         stop: function(ev, ui) {
+            
+         }
+      });
    },
    
    /**
@@ -30,6 +35,7 @@ OvalController = {
     */
    onCanvasContainerDrop: function(domEl) {
       if ( domEl.hasClass("mpc-tool-oval") && domEl.hasClass( "mpc-tool" ) ) {
+         domEl.draggable({revert: false});
          this.locateOnCanvas( domEl );
          this.addDefaultAttrs( domEl );
          this.paint( domEl );
@@ -159,7 +165,7 @@ OvalController = {
     */
    addNewIcon: function() {
       $('<div class="mpc-tool mpc-tool-oval"><canvas></canvas><div class="mpc-caption">oval</div></div>').appendTo("#mpc-tools");
-      $('.mpc-tool.mpc-tool-oval').draggable();
+      $('.mpc-tool.mpc-tool-oval').draggable({revert: true});
       this.paint($('.mpc-tool.mpc-tool-oval'));
    }
    

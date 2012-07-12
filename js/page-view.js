@@ -2,7 +2,6 @@ PageView = {
 
    init: function() {
       PageLoadedEvent.subscribe(this);
-      CanvasContainerDropEvent.subscribe(this);
       
       return this;
    },

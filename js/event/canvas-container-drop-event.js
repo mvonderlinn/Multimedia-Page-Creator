@@ -1,13 +1,13 @@
 CanvasContainerDropEvent = {
-      
+
    listeners: [],
 
    init: function() {
       PageLoadedEvent.subscribe(this);
-      
+
       return this;
    },
-   
+
    onPageLoaded: function() {
       $( "#mpc-canvas-container" ).droppable({
          drop: function(ev, ui) {
@@ -15,7 +15,7 @@ CanvasContainerDropEvent = {
          }
       });
    },
-   
+
    /**
     * ChainOfResponsibility
     */
@@ -27,11 +27,11 @@ CanvasContainerDropEvent = {
          }
       }
    },
-   
+
    subscribe: function(obj) {
       this.listeners.push(obj);
    },
-   
+
    unsubscribe: function(obj) {
       /**
       * searching for an index of the object passed
@@ -51,4 +51,5 @@ CanvasContainerDropEvent = {
          this.listeners = this.listeners.splice(foundIndex + 1, 1);
       }
    }
+
 }.init();
