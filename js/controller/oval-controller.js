@@ -64,46 +64,6 @@ OvalController = {
     *   mpcFillColor 
     *   mpcBorderColor
     */
-   paint2: function(domEl) {
-      var bordersWidth = $(domEl).hasClass("mpc-tool") ? 20 : 5;
-      
-      var canvasEl = $(domEl).children("canvas").get(0);
-      
-      canvasEl.width = $(domEl).width(); 
-      canvasEl.height = $(domEl).height();
-      
-      var ctx = canvasEl.getContext("2d");
-      ctx.strokeStyle = $(domEl).attr("mpcBorderColor");
-      ctx.lineWidth = $(domEl).attr("mpcBorderWidth");
-      
-      ctx.scale(
-         (canvasEl.height / canvasEl.width), 
-         (canvasEl.width / canvasEl.height)
-      );
-      
-      ctx.beginPath();
-      var smallerSize = canvasEl.width < canvasEl.height ? canvasEl.width : canvasEl.height,
-          x = parseInt( canvasEl.width / 2),
-          y = parseInt( canvasEl.height / 2),
-          radius = parseInt( smallerSize / 2) - bordersWidth;
-          
-      ctx.arc( x, y, radius, 0, Math.PI*2, true );
-      ctx.stroke();
-      
-      if( "true" === $(domEl).attr("mpcIsFilled") ) {
-         ctx.fillStyle = $(domEl).attr("mpcFillColor");
-         ctx.fill();
-      }
-      
-   },
-   
-   /**
-    * Paints an oval basing on following properties:
-    *   mpcBorderWidth 
-    *   mpcIsFilled 
-    *   mpcFillColor 
-    *   mpcBorderColor
-    */
    paint: function(domEl) {
       var canvasEl = $(domEl).children("canvas").get(0);
       
