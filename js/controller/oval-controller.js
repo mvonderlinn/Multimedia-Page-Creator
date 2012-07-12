@@ -14,6 +14,8 @@ OvalController = {
    },
    
    paint: function(domEl) {
+      var bordersWidth = $(domEl).hasClass("mpc-tool") ? 20 : 5;
+      
       var canvasEl = $(domEl).children("canvas").get(0);
       
       canvasEl.width = $(domEl).width(); 
@@ -26,22 +28,22 @@ OvalController = {
       var smallerSize = canvasEl.width < canvasEl.height ? canvasEl.width : canvasEl.height,
           x = parseInt( canvasEl.width / 2),
           y = parseInt( canvasEl.height / 2),
-          radius = parseInt( smallerSize / 2) - 10;
+          radius = parseInt( smallerSize / 2) - bordersWidth;
           
       ctx.arc( x, y, radius, 0, Math.PI*2, true );
       ctx.stroke();   
    },
    
    onCanvasContainerDrop: function(domEl) {
-
       if ( domEl.hasClass("mpc-tool-oval") && domEl.hasClass( "mpc-tool" ) ) {
          this.locateOnCanvas(domEl);
-      }
-      
+      }      
    },
    
    locateOnCanvas: function(domEl) {
      domEl.removeClass( "mpc-tool" );
+     OvalController.paint( domEl );
+     
      domEl.children( ".mpc-caption" ).remove();
 
      domEl.detach();
