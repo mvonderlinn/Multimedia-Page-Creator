@@ -105,9 +105,6 @@ OvalController = {
     *   mpcBorderColor
     */
    paint: function(domEl) {
-     
-      var bordersWidth = $(domEl).hasClass("mpc-tool") ? 20 : 5;
-      
       var canvasEl = $(domEl).children("canvas").get(0);
       
       canvasEl.width = $(domEl).width(); 
@@ -118,15 +115,13 @@ OvalController = {
       ctx.lineWidth = $(domEl).attr("mpcBorderWidth");
       
       
-      var smallerSize = canvasEl.width < canvasEl.height ? canvasEl.width : canvasEl.height,
-          resizeBorder = 3,
-          x = 0,//parseInt( canvasEl.width / 2),
-          y = 0,//parseInt( canvasEl.height / 2),
-          radius = parseInt( smallerSize / 2) - bordersWidth,
-          w = canvasEl.width,
-          h = canvasEl.height - resizeBorder - $(domEl).attr("mpcBorderWidth");
-          
-      //ctx.arc( x, y, radius, 0, Math.PI*2, true );
+      var resizeBorder = 5,
+      x = 0 + resizeBorder + parseInt($(domEl).attr("mpcBorderWidth")),
+      y = 0 + resizeBorder + parseInt($(domEl).attr("mpcBorderWidth")),
+      w = canvasEl.width - resizeBorder - $(domEl).attr("mpcBorderWidth") - x,
+      h = canvasEl.height - resizeBorder - $(domEl).attr("mpcBorderWidth") - y;
+      
+      
       
       var kappa = .5522848;
       ox = (w / 2) * kappa, // control point offset horizontal
@@ -136,24 +131,20 @@ OvalController = {
       xm = x + w / 2,       // x-middle
       ym = y + h / 2;       // y-middle
 
-     ctx.beginPath();
-     ctx.moveTo(x, ym);
-     ctx.bezierCurveTo(x, ym - oy, xm - ox, y, xm, y);
-     ctx.bezierCurveTo(xm + ox, y, xe, ym - oy, xe, ym);
-     ctx.bezierCurveTo(xe, ym + oy, xm + ox, ye, xm, ye);
-     ctx.bezierCurveTo(xm - ox, ye, x, ym + oy, x, ym);
-     ctx.closePath();
-     ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(x, ym);
+      ctx.bezierCurveTo(x, ym - oy, xm - ox, y, xm, y);
+      ctx.bezierCurveTo(xm + ox, y, xe, ym - oy, xe, ym);
+      ctx.bezierCurveTo(xe, ym + oy, xm + ox, ye, xm, ye);
+      ctx.bezierCurveTo(xm - ox, ye, x, ym + oy, x, ym);
+      ctx.closePath();
+      ctx.stroke();
 
-         
-         
-      
       if( "true" === $(domEl).attr("mpcIsFilled") ) {
          ctx.fillStyle = $(domEl).attr("mpcFillColor");
          ctx.fill();
       }
-      
-      
+
    },
    
    /**
