@@ -133,6 +133,7 @@ OvalController = {
    
    enableResizing: function(domEl) {
      domEl.resizable({
+        disabled: false,
         handles: "n, e, s, w",
         containment: "#mpc-canvas-container",
         resize: function(event, ui) {
@@ -140,12 +141,7 @@ OvalController = {
         }
      });   
    },
-   
-   disableResizing: function(domEl) {
-     domEl.resizable({
-     });
-   },
-   
+      
    /**
     * Initializes default properties
     * of newly created canvas graphical object
