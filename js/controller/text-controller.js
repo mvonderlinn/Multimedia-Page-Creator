@@ -65,7 +65,7 @@ TextController = {
    },
 
    onModifyCanvasElement: function(domEl) {
-      if( domEl.hasClass("mpc-tool-text") ) {
+      if( $(domEl).hasClass("mpc-tool-text") ) {
 
          var fontSize = parseInt(TextController.activeElement.children("textarea").css("fontSize"));
          $(".mpc-text-font-size-sel option").removeAttr( "selected" );

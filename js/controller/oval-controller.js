@@ -126,17 +126,18 @@ OvalController = {
             CanvasElementSelectedEvent.trigger(this);
         }
      });
-     
+
      /**
       * chain of responsibility, kind of ..
       */
       domEl.click(function() {
          CanvasElementSelectedEvent.trigger(this);
       });
-      
+
       domEl.dblclick(function() {
+         CanvasElementSelectedEvent.trigger(this);
          ModifyCanvasElementEvent.trigger(this);
-      });      
+      });
    },
    
    enableResizing: function(domEl) {

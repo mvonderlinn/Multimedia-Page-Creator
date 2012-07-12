@@ -213,7 +213,7 @@
       </div>
       
       <div class="mpc-tool mpc-tool-triangle">
-         <canvas></canvas>
+         <canvas style="width:100px;height:100px;"></canvas>
          <div class="mpc-caption">
             triangle
          </div>
@@ -373,24 +373,25 @@
 <div id="mpc-oval-dlg" style="display: none" title="Oval properties">
    <table>
       <tr>
-         <td>
+         <td style="text-align: right">
             border width
          </td>
          <td>
-            <input type="text" id="" name="" />
+            <input type="text" id="" name="" value="1.0" />
          </td>
       </tr>
       
       <tr>
-         <td>
+         <td style="text-align: right">
             border color
          </td>
          <td>
+            <span id="mpc-oval-dlg-border-color">#000000</span>
          </td>
       </tr>
       
       <tr>
-         <td>
+         <td style="text-align: right">
             filled
          </td>
          <td>
@@ -399,12 +400,19 @@
       </tr>  
 
       <tr>
-         <td>
+         <td style="text-align: right">
             fill color
          </td>
          <td>
+            <span id="mpc-oval-dlg-fill-color">#ffffff</span>
          </td>
-      </tr>      
+      </tr>
+      
+      <tr>
+         <td colspan="2" style="text-align: center">
+            <input type="button" value="ok" id="mpc-oval-dlg-ok-btn" />
+         </td>
+      </tr>
    </table>
 </div>
 
