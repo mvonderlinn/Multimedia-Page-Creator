@@ -142,6 +142,8 @@ OvalController = {
    },
    
    disableResizing: function(domEl) {
+     domEl.resizable({
+     });
    },
    
    /**
