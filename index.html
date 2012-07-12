@@ -41,6 +41,10 @@
  
  <script type="text/javascript" src="js/page-view.js"></script> 
  
+ <!-- dialogs --> 
+ 
+ <script type="text/javascript" src="js/dialog/oval-dialog.js"></script> 
+ 
 </head>
 <body>
 
@@ -269,10 +273,16 @@
 
 <!-- Dialogs are defined below -->
 
+<!--
+   How To Video Dialog
+-->
 <div id="mpc-howto-video-dlg" style="display: none" title="HowTo Video">
    <iframe width="560" height="315" src="http://www.youtube.com/embed/V9Hl63jhW8U" frameborder="0" allowfullscreen></iframe>
 </div>
 
+<!--   
+   Text Dialog
+-->
 <div id="mpc-text-dlg" style="display: none" title="Text properties">
    <table>
  <tr>
@@ -354,6 +364,47 @@
       <input type="button" value="ok" id="mpc-text-ok-btn" name="mpc-text-ok-btn" />
    </td>
    </tr>
+   </table>
+</div>
+
+<!--   
+   Oval Dialog
+-->
+<div id="mpc-oval-dlg" style="display: none" title="Oval properties">
+   <table>
+      <tr>
+         <td>
+            border width
+         </td>
+         <td>
+            <input type="text" id="" name="" />
+         </td>
+      </tr>
+      
+      <tr>
+         <td>
+            border color
+         </td>
+         <td>
+         </td>
+      </tr>
+      
+      <tr>
+         <td>
+            filled
+         </td>
+         <td>
+            <input type="checkbox" />
+         </td>
+      </tr>  
+
+      <tr>
+         <td>
+            fill color
+         </td>
+         <td>
+         </td>
+      </tr>      
    </table>
 </div>
 

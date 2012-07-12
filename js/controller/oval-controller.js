@@ -1,4 +1,12 @@
+/**
+ * Represents controller for all the oval objects,
+ * including tool icons and canvas oval shapes
+ */
 OvalController = {
+
+   /**
+    * Bind event listening to controller
+    */
    init: function() {
       PageLoadedEvent.subscribe(this);
       CanvasContainerDropEvent.subscribe(this);
@@ -6,6 +14,9 @@ OvalController = {
       return this;      
    },
    
+   /**
+    * Handler being called right after openning MPC
+    */
    onPageLoaded: function() {
       $(".mpc-tool-oval").each(function() {
          OvalController.paint( this );
@@ -13,6 +24,25 @@ OvalController = {
       $(".mpc-tool-oval").draggable();
    },
    
+   /**
+    * Handler for dropping a tool on canvas
+    */
+   onCanvasContainerDrop: function(domEl) {
+      if ( domEl.hasClass("mpc-tool-oval") && domEl.hasClass( "mpc-tool" ) ) {
+         this.locateOnCanvas( domEl );
+         this.addDefaultAttrs( domEl );
+         this.paint( domEl );
+         this.addNewIcon();
+      }      
+   },
+
+   /**
+    * Paints an oval basing on following properties:
+    *   mpcBorderWidth 
+    *   mpcIsFilled 
+    *   mpcFillColor 
+    *   mpcBorderColor
+    */
    paint: function(domEl) {
       var bordersWidth = $(domEl).hasClass("mpc-tool") ? 20 : 5;
       
@@ -22,8 +52,8 @@ OvalController = {
       canvasEl.height = $(domEl).height();
       
       var ctx = canvasEl.getContext("2d");
-      ctx.strokeStyle = "black";
-      ctx.lineWidth = 1.0;
+      ctx.strokeStyle = $(domEl).attr("mpcBorderColor");
+      ctx.lineWidth = $(domEl).attr("mpcBorderWidth");
       ctx.beginPath();
       var smallerSize = canvasEl.width < canvasEl.height ? canvasEl.width : canvasEl.height,
           x = parseInt( canvasEl.width / 2),
@@ -31,18 +61,20 @@ OvalController = {
           radius = parseInt( smallerSize / 2) - bordersWidth;
           
       ctx.arc( x, y, radius, 0, Math.PI*2, true );
-      ctx.stroke();   
+      ctx.stroke();
+      
+      if( "true" === $(domEl).attr("mpcIsFilled") ) {
+         ctx.fillStyle = $(domEl).attr("mpcFillColor");
+         ctx.fill();
+      }
    },
    
-   onCanvasContainerDrop: function(domEl) {
-      if ( domEl.hasClass("mpc-tool-oval") && domEl.hasClass( "mpc-tool" ) ) {
-         this.locateOnCanvas(domEl);
-      }      
-   },
-   
+   /**
+    * Transforms a tool icon into graphical object
+    * on canvas
+    */
    locateOnCanvas: function(domEl) {
      domEl.removeClass( "mpc-tool" );
-     OvalController.paint( domEl );
      
      domEl.children( ".mpc-caption" ).remove();
 
@@ -72,7 +104,34 @@ OvalController = {
      domEl.draggable({
         containment: "#mpc-canvas-container"
      });
-   }
+     
+     /**
+      * chain of responsibility, kind of ..
+      */
+      domEl.click(function() {
+         
+      });
+   },
    
+   /**
+    * Initializes default properties
+    * of newly created canvas graphical object
+    */
+   addDefaultAttrs: function( domEl ) {
+      domEl.attr("mpcBorderWidth", "1.0");
+      domEl.attr("mpcIsFilled", "false");
+      domEl.attr("mpcFillColor", "#000000");
+      domEl.attr("mpcBorderColor", "#000000");
+   },
+   
+   /**
+    * Creates new icon in toolset
+    * after creating new 
+    */
+   addNewIcon: function() {
+      $('<div class="mpc-tool mpc-tool-oval"><canvas></canvas><div class="mpc-caption">oval</div></div>').appendTo("#mpc-tools");
+      $('.mpc-tool.mpc-tool-oval').draggable();
+      this.paint($('.mpc-tool.mpc-tool-oval'));
+   }
    
 }.init();
