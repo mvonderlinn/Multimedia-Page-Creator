@@ -115,7 +115,7 @@ OvalController = {
       ctx.lineWidth = $(domEl).attr("mpcBorderWidth");
       
       
-      var resizeBorder = 5,
+      var resizeBorder = $(domEl).hasClass("mpc-tool") ? 20 : 5,
       x = 0 + resizeBorder + parseInt($(domEl).attr("mpcBorderWidth")),
       y = 0 + resizeBorder + parseInt($(domEl).attr("mpcBorderWidth")),
       w = canvasEl.width - resizeBorder - $(domEl).attr("mpcBorderWidth") - x,
@@ -224,7 +224,7 @@ OvalController = {
     * after creating new 
     */
    addNewIcon: function() {
-      $('<div class="mpc-tool mpc-tool-oval"><canvas></canvas><div class="mpc-caption">oval</div></div>').appendTo("#mpc-tools");
+      $('<div class="mpc-tool mpc-tool-oval" mpcBorderWidth="1" mpcIsFilled="false" mpcFillColor="#ffffff" mpcBorderColor="#000000"><canvas></canvas><div class="mpc-caption">oval</div></div>').appendTo("#mpc-tools");
       $('.mpc-tool.mpc-tool-oval').draggable({revert: true});
       this.paint($('.mpc-tool.mpc-tool-oval'));
    }
