@@ -64,7 +64,7 @@ OvalController = {
     *   mpcFillColor 
     *   mpcBorderColor
     */
-   paint: function(domEl) {
+   paint2: function(domEl) {
       var bordersWidth = $(domEl).hasClass("mpc-tool") ? 20 : 5;
       
       var canvasEl = $(domEl).children("canvas").get(0);
@@ -75,6 +75,12 @@ OvalController = {
       var ctx = canvasEl.getContext("2d");
       ctx.strokeStyle = $(domEl).attr("mpcBorderColor");
       ctx.lineWidth = $(domEl).attr("mpcBorderWidth");
+      
+      ctx.scale(
+         (canvasEl.height / canvasEl.width), 
+         (canvasEl.width / canvasEl.height)
+      );
+      
       ctx.beginPath();
       var smallerSize = canvasEl.width < canvasEl.height ? canvasEl.width : canvasEl.height,
           x = parseInt( canvasEl.width / 2),
@@ -88,6 +94,66 @@ OvalController = {
          ctx.fillStyle = $(domEl).attr("mpcFillColor");
          ctx.fill();
       }
+      
+   },
+   
+   /**
+    * Paints an oval basing on following properties:
+    *   mpcBorderWidth 
+    *   mpcIsFilled 
+    *   mpcFillColor 
+    *   mpcBorderColor
+    */
+   paint: function(domEl) {
+     
+      var bordersWidth = $(domEl).hasClass("mpc-tool") ? 20 : 5;
+      
+      var canvasEl = $(domEl).children("canvas").get(0);
+      
+      canvasEl.width = $(domEl).width(); 
+      canvasEl.height = $(domEl).height();
+      
+      var ctx = canvasEl.getContext("2d");
+      ctx.strokeStyle = $(domEl).attr("mpcBorderColor");
+      ctx.lineWidth = $(domEl).attr("mpcBorderWidth");
+      
+      
+      var smallerSize = canvasEl.width < canvasEl.height ? canvasEl.width : canvasEl.height,
+          resizeBorder = 3,
+          x = 0,//parseInt( canvasEl.width / 2),
+          y = 0,//parseInt( canvasEl.height / 2),
+          radius = parseInt( smallerSize / 2) - bordersWidth,
+          w = canvasEl.width,
+          h = canvasEl.height - resizeBorder - $(domEl).attr("mpcBorderWidth");
+          
+      //ctx.arc( x, y, radius, 0, Math.PI*2, true );
+      
+      var kappa = .5522848;
+      ox = (w / 2) * kappa, // control point offset horizontal
+      oy = (h / 2) * kappa, // control point offset vertical
+      xe = x + w,           // x-end
+      ye = y + h,           // y-end
+      xm = x + w / 2,       // x-middle
+      ym = y + h / 2;       // y-middle
+
+     ctx.beginPath();
+     ctx.moveTo(x, ym);
+     ctx.bezierCurveTo(x, ym - oy, xm - ox, y, xm, y);
+     ctx.bezierCurveTo(xm + ox, y, xe, ym - oy, xe, ym);
+     ctx.bezierCurveTo(xe, ym + oy, xm + ox, ye, xm, ye);
+     ctx.bezierCurveTo(xm - ox, ye, x, ym + oy, x, ym);
+     ctx.closePath();
+     ctx.stroke();
+
+         
+         
+      
+      if( "true" === $(domEl).attr("mpcIsFilled") ) {
+         ctx.fillStyle = $(domEl).attr("mpcFillColor");
+         ctx.fill();
+      }
+      
+      
    },
    
    /**
