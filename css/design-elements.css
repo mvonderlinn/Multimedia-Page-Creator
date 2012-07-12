@@ -168,11 +168,22 @@ INPUT.mpc-field {
 
 #mpc-content .ui-resizable-n {
    border: 0;
-   border-bottom: 1px solid red;
-   
 }
 
-#mpc-content .ui-resizable-w {
+#mpc-content .mpc-active-el .ui-resizable-n  {
+   border: 0;
+   border-bottom: 1px solid red;
+}
+
+#mpc-content .ui-resizable-e {
+   border: 0;
+}
+
+#mpc-content .ui-resizable-w  {
+   border: 0;
+}
+
+#mpc-content .mpc-active-el .ui-resizable-w  {
    border: 0;
    border-right: 1px solid red;
    
@@ -180,10 +191,18 @@ INPUT.mpc-field {
 
 #mpc-content .ui-resizable-e {
    border: 0;
+}
+
+#mpc-content .mpc-active-el .ui-resizable-e  {
+   border: 0;
    border-left: 1px solid red;
 }
 
 #mpc-content .ui-resizable-s {
+   border: 0;
+}
+
+#mpc-content .mpc-active-el .ui-resizable-s {
    border: 0;
    border-top: 1px solid red;
 }

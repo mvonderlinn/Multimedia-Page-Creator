@@ -12,7 +12,7 @@ TextController = {
        * triggers
        */
       CanvasElementSelectedEvent.subscribe(this);
-      EditCanvasElementEvent.subscribe(this);
+      ModifyCanvasElementEvent.subscribe(this);
 
       return this;
    },
@@ -58,13 +58,13 @@ TextController = {
    
    onCanvasElementSelected: function(domEl) {
 
-      if( domEl.hasClass("mpc-tool-text") ) {
+      if( $(domEl).hasClass("mpc-tool-text") ) {
          TextController.activeElement = domEl;
       }
       
    },
 
-   onEditCanvasElement: function(domEl) {
+   onModifyCanvasElement: function(domEl) {
       if( domEl.hasClass("mpc-tool-text") ) {
 
          var fontSize = parseInt(TextController.activeElement.children("textarea").css("fontSize"));
@@ -146,7 +146,7 @@ TextController = {
       
       domEl.dblclick(function(ev) {
          alert( "dom element" + TextController.activeElement.id );
-         EditCanvasElementEvent.trigger( domEl );
+         ModifyCanvasElementEvent.trigger( domEl );
       });
 
       domEl.bind("mousedown", function(ev) {

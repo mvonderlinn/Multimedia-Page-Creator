@@ -1,7 +1,7 @@
 /**
  * usually dbl click on event
  */
-EditCanvasElementEvent = {
+ModifyCanvasElementEvent = {
       
    listeners: [],
 
@@ -16,7 +16,7 @@ EditCanvasElementEvent = {
    trigger: function(draggable) {
       for(var oKey in this.listeners) {
          var obj = this.listeners[oKey];
-         obj.onEditCanvasElement( draggable );
+         obj.onModifyCanvasElement( draggable );
       }
    },
 

@@ -10,6 +10,7 @@ OvalController = {
    init: function() {
       PageLoadedEvent.subscribe(this);
       CanvasContainerDropEvent.subscribe(this);
+      CanvasElementSelectedEvent.subscribe(this);
       
       return this;      
    },
@@ -35,7 +36,19 @@ OvalController = {
          this.addNewIcon();
       }      
    },
+   
+   /**
+    * Handler for selecting oval
+    */
+   onCanvasElementSelected: function( domEl ) {
 
+      if( $(domEl).hasClass("mpc-tool-oval") ) {
+         $(".mpc-tool-oval").removeClass("mpc-active-el");
+         $(domEl).addClass("mpc-active-el");
+      }
+
+   },
+   
    /**
     * Paints an oval basing on following properties:
     *   mpcBorderWidth 
@@ -80,6 +93,10 @@ OvalController = {
 
      domEl.detach();
      domEl.appendTo("#mpc-canvas-container");
+     
+     $(".mpc-tool-oval").removeClass("mpc-active-el");
+     $(domEl).addClass("mpc-active-el");
+     
      /**
       * Positioning
       */
@@ -93,24 +110,38 @@ OvalController = {
      /**
       * Adding resizable and draggable properties
       */
-     domEl.resizable({
-        handles: "n, e, s, w",
-        containment: "#mpc-canvas-container",
-        resize: function(event, ui) {
-           OvalController.paint( this );
-        }
-     });
+     this.enableResizing(domEl);
 
      domEl.draggable({
-        containment: "#mpc-canvas-container"
+        containment: "#mpc-canvas-container",
+        start: function() {
+            CanvasElementSelectedEvent.trigger(this);
+        }
      });
      
      /**
       * chain of responsibility, kind of ..
       */
       domEl.click(function() {
-         
+         CanvasElementSelectedEvent.trigger(this);
       });
+      
+      domEl.dblclick(function() {
+         ModifyCanvasElementEvent.trigger(this);
+      });      
+   },
+   
+   enableResizing: function(domEl) {
+     domEl.resizable({
+        handles: "n, e, s, w",
+        containment: "#mpc-canvas-container",
+        resize: function(event, ui) {
+           OvalController.paint( this );
+        }
+     });   
+   },
+   
+   disableResizing: function(domEl) {
    },
    
    /**
