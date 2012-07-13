@@ -14,9 +14,9 @@ RectangleDialog = {
    
    onPageLoaded: function() {
       $("#mpc-oval-dlg-ok-btn").click(function() {
-         OvalDialog.applyProperties();
+         RectangleDialog.applyProperties();
          var domEl = $(".mpc-tool-oval.mpc-active-el");
-         OvalController.paint(domEl);
+         RectangleController.paint(domEl);
          $("#mpc-oval-dlg").dialog("close");         
       });
       
@@ -35,7 +35,7 @@ RectangleDialog = {
     * Handler for
     */
    onModifyCanvasElement: function(domEl) {
-      var domEl = $(".mpc-tool-oval.mpc-active-el");
+      var domEl = $(".mpc-tool-rectangle.mpc-active-el");
 
       if("true" === domEl.attr("mpcIsStroked") ) {
          $("#mpc-oval-dlg-is-stroked").attr("checked", "checked");
@@ -61,7 +61,7 @@ RectangleDialog = {
    },
    
    applyProperties: function() {
-      var domEl = $(".mpc-tool-oval.mpc-active-el");
+      var domEl = $(".mpc-rectangle-oval.mpc-active-el");
       
       domEl.attr("mpcIsStroked", "" + $("#mpc-oval-dlg-is-stroked").is(":checked") );
       domEl.attr("mpcBorderWidth", parseFloat($("#mpc-oval-dlg-width").val()) );
