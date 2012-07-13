@@ -98,7 +98,10 @@ OvalController = {
       ctx.bezierCurveTo(xe, ym + oy, xm + ox, ye, xm, ye);
       ctx.bezierCurveTo(xm - ox, ye, x, ym + oy, x, ym);
       ctx.closePath();
-      ctx.stroke();
+      
+      if( "true" === $(domEl).attr("mpcIsStroked") ) {
+         ctx.stroke();
+      }
 
       if( "true" === $(domEl).attr("mpcIsFilled") ) {
          ctx.fillStyle = $(domEl).attr("mpcFillColor");
@@ -173,6 +176,7 @@ OvalController = {
     * of newly created canvas graphical object
     */
    addDefaultAttrs: function( domEl ) {
+      domEl.attr("mpcIsStroked", "true");
       domEl.attr("mpcBorderWidth", "1.0");
       domEl.attr("mpcIsFilled", "false");
       domEl.attr("mpcFillColor", "#000000");
@@ -184,7 +188,7 @@ OvalController = {
     * after creating new 
     */
    addNewIcon: function() {
-      $('<div class="mpc-tool mpc-tool-oval" mpcBorderWidth="1" mpcIsFilled="false" mpcFillColor="#ffffff" mpcBorderColor="#000000"><canvas></canvas><div class="mpc-caption">oval</div></div>').appendTo("#mpc-tools");
+      $('<div class="mpc-tool mpc-tool-oval" mpcIsStroked="true" mpcBorderWidth="1" mpcIsFilled="false" mpcFillColor="#ffffff" mpcBorderColor="#000000"><canvas></canvas><div class="mpc-caption">oval</div></div>').appendTo("#mpc-tools");
       $('.mpc-tool.mpc-tool-oval').draggable({revert: true});
       this.paint($('.mpc-tool.mpc-tool-oval'));
    }

@@ -191,7 +191,7 @@
          </div>
       </div>
       
-      <div class="mpc-tool mpc-tool-oval" mpcBorderWidth="1" mpcIsFilled="false" mpcFillColor="#ffffff" mpcBorderColor="#000000">
+      <div class="mpc-tool mpc-tool-oval" mpcIsStroked="true"  mpcBorderWidth="1" mpcIsFilled="false" mpcFillColor="#ffffff" mpcBorderColor="#000000">
          <canvas></canvas>
          <div class="mpc-caption">
             oval
@@ -372,6 +372,16 @@
 -->
 <div id="mpc-oval-dlg" style="display: none" title="Oval properties">
    <table>
+      
+      <tr>
+         <td style="text-align: right">
+            stroked
+         </td>
+         <td>
+            <input type="checkbox" id="mpc-oval-dlg-is-stroked" />
+         </td>
+      </tr>
+      
       <tr>
          <td style="text-align: right">
             border width

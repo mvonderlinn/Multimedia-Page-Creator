@@ -2,7 +2,8 @@ RectangleController = {
    init: function() {
       PageLoadedEvent.subscribe(this);
       CanvasContainerDropEvent.subscribe(this);
-
+      CanvasElementSelectedEvent.subscribe(this);
+      
       return this;      
    },
    
@@ -30,6 +31,12 @@ RectangleController = {
          domEl.children(".mpc-caption").remove();
          domEl.resizable();
       }   
+   },
+   
+   onCanvasElementSelected: function() {
+   },
+   
+   paint: function(domEl) {
    }
    
 }.init();
