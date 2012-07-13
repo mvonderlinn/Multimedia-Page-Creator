@@ -24,10 +24,7 @@ OvalController = {
          OvalController.paint( this );
       });
       $(".mpc-tool-oval").draggable({
-         revert: true,
-         stop: function(ev, ui) {
-            
-         }
+         revert: true
       });
    },
    
@@ -41,7 +38,7 @@ OvalController = {
          this.addDefaultAttrs( domEl );
          this.paint( domEl );
          this.addNewIcon();
-      }      
+      }
    },
    
    /**
@@ -50,8 +47,8 @@ OvalController = {
    onCanvasElementSelected: function( domEl ) {
 
       if( $(domEl).hasClass( "mpc-tool-oval" ) ){
-         $(".mpc-tool-oval").removeClass( "mpc-active-el" );
-         $(".mpc-tool-oval").resizable( "destroy" );
+         $(".mpc-active-el").resizable( "destroy" );
+         $(".mpc-active-el").removeClass( "mpc-active-el" );         
          $(domEl).addClass( "mpc-active-el" );
          this.enableResizing( $(domEl) );
       }
@@ -74,20 +71,18 @@ OvalController = {
       
       canvasEl.width = $(domEl).width(); 
       canvasEl.height = $(domEl).height();
-      
+
       var ctx = canvasEl.getContext("2d");
       ctx.strokeStyle = $(domEl).attr("mpcBorderColor");
+      ctx.fillStyle = $(domEl).attr("mpcFillColor");      
       ctx.lineWidth = $(domEl).attr("mpcBorderWidth");
       
-      
       var resizeBorder = $(domEl).hasClass("mpc-tool") ? 20 : 5,
-      x = 0 + resizeBorder + parseInt($(domEl).attr("mpcBorderWidth")),
-      y = 0 + resizeBorder + parseInt($(domEl).attr("mpcBorderWidth")),
-      w = canvasEl.width - resizeBorder - $(domEl).attr("mpcBorderWidth") - x,
-      h = canvasEl.height - resizeBorder - $(domEl).attr("mpcBorderWidth") - y;
-      
-      
-      
+          x = 0 + resizeBorder + parseInt($(domEl).attr("mpcBorderWidth")),
+          y = 0 + resizeBorder + parseInt($(domEl).attr("mpcBorderWidth")),
+          w = canvasEl.width - resizeBorder - $(domEl).attr("mpcBorderWidth") - x,
+          h = canvasEl.height - resizeBorder - $(domEl).attr("mpcBorderWidth") - y;
+
       var kappa = .5522848;
       ox = (w / 2) * kappa, // control point offset horizontal
       oy = (h / 2) * kappa, // control point offset vertical
@@ -103,16 +98,14 @@ OvalController = {
       ctx.bezierCurveTo(xe, ym + oy, xm + ox, ye, xm, ye);
       ctx.bezierCurveTo(xm - ox, ye, x, ym + oy, x, ym);
       ctx.closePath();
-      
+
       if( "true" === $(domEl).attr("mpcIsStroked") ) {
          ctx.stroke();
       }
 
       if( "true" === $(domEl).attr("mpcIsFilled") ) {
-         ctx.fillStyle = $(domEl).attr("mpcFillColor");
          ctx.fill();
       }
-
    },
    
    /**
@@ -127,7 +120,9 @@ OvalController = {
      domEl.detach();
      domEl.appendTo("#mpc-canvas-container");
      
-     $(".mpc-tool-oval").removeClass("mpc-active-el");
+     $(".mpc-active-el").resizable( "destroy" );
+     $(".mpc-active-el").removeClass("mpc-active-el");
+     
      $(domEl).addClass("mpc-active-el");
      
      /**
@@ -168,7 +163,7 @@ OvalController = {
    enableResizing: function(domEl) {
      domEl.resizable({
         disabled: false,
-        handles: "n, e, s, w",
+        handles: "n, e, s, w, ne, se, sw, nw",
         containment: "#mpc-canvas-container",
         resize: function(event, ui) {
            OvalController.paint( this );
