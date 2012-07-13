@@ -9,21 +9,23 @@ DeleteKeyEvent = {
    },
 
    onPageLoaded: function() {
-      $(document).keypress(function(ev) {
-
-         alert(ev.which);
-
+      $(document).keypress(function(ev) {         
+         var delKeyCode = 46;
+         var k = ev.which ? ev.which : ev.keyCode;
+         if(k === delKeyCode) {
+            DeleteKeyEvent.trigger();
+         }
       });
    },
 
    /**
     * ChainOfResponsibility
     */
-   trigger: function(draggable) {
+   trigger: function() {
       for(var oKey in this.listeners) {
          var obj = this.listeners[oKey];
          if("onDeleteKey" in obj) {
-            obj.onDeleteKey(draggable);
+            obj.onDeleteKey();
          }
       }
    },

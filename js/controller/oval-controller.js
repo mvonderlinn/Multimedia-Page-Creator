@@ -11,6 +11,7 @@ OvalController = {
       PageLoadedEvent.subscribe(this);
       CanvasContainerDropEvent.subscribe(this);
       CanvasElementSelectedEvent.subscribe(this);
+      DeleteKeyEvent.subscribe(this);
       
       return this;      
    },
@@ -55,6 +56,9 @@ OvalController = {
          this.enableResizing( $(domEl) );
       }
 
+   },
+   
+   onDeleteKey: function() {
    },
    
    /**
