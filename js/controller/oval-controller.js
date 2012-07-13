@@ -59,6 +59,7 @@ OvalController = {
    },
    
    onDeleteKey: function() {
+      $(".mpc-tool-oval.mpc-active-el").remove();
    },
    
    /**
