@@ -1,35 +1,5 @@
-LineController = {
-   init: function() {
-      PageLoadedEvent.subscribe(this);
-      CanvasContainerDropEvent.subscribe(this);
-
-      return this;
-   },
-   
-   onPageLoaded: function() {
-      $(".mpc-tool-line").each(function() {
-         var canvasEl = $(this).children("canvas").get(0);
-         canvasEl.width = 120;
-         canvasEl.height = 80;
-         
-         var ctx = canvasEl.getContext("2d");
-         ctx.strokeStyle = "black";
-         ctx.beginPath();
-         ctx.moveTo(15, 15);
-         ctx.lineTo(55, 45);
-         ctx.stroke();
-         
-      });
-
-      $(".mpc-tool-line").draggable();
-   },
-   
-   onCanvasContainerDrop: function(domEl) {
-      if(domEl.hasClass("mpc-tool-line")) {
-         domEl.removeClass("mpc-tool");
-         domEl.children(".mpc-caption").remove();
-         domEl.resizable();
-      }
+LineController = new ShapeControllerCreator("mpc-tool-line", {
+   putIconInToolset: function() {   
+      $('<div class="mpc-tool mpc-tool-line" mpcIsStroked="true" mpcBorderWidth="1" mpcIsFilled="false" mpcFillColor="#ffffff" mpcBorderColor="#000000"><canvas></canvas><div class="mpc-caption">line</div></div>').appendTo("#mpc-tools");
    }
-
-}.init();
+}).init();
