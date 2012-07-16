@@ -19,13 +19,7 @@ ShapeControllerBuilder.prototype.init = function() {
  * Handler being called right after openning MPC
  */
 ShapeControllerBuilder.prototype.onPageLoaded = function() {
-   $("." + this.shapeClass).each(function() {
-      PaintElementEvent.trigger( this );
-   });
-   
-   $("." + this.shapeClass).draggable({
-      revert: true
-   });    
+   this.addNewIcon();
 };
 
 /**
@@ -147,4 +141,11 @@ ShapeControllerBuilder.prototype.addDefaultAttrs = function( domEl ) {
    domEl.attr("mpcIsFilled", "false");
    domEl.attr("mpcFillColor", "#000000");
    domEl.attr("mpcBorderColor", "#000000");
+};
+
+ShapeControllerBuilder.prototype.addNewIcon = function() {
+   
+   this.putIconInToolset();
+   $('.mpc-tool.' + this.shapeClass).draggable({revert: true});
+   PaintElementEvent.trigger( $('.mpc-tool.' + this.shapeClass) );
 };

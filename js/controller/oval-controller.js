@@ -4,8 +4,7 @@
  */
 OvalController = new ShapeControllerBuilder("mpc-tool-oval").init();
 
-OvalController.addNewIcon = function() {
-      $('<div class="mpc-tool mpc-tool-oval" mpcIsStroked="true" mpcBorderWidth="1" mpcIsFilled="false" mpcFillColor="#ffffff" mpcBorderColor="#000000"><canvas></canvas><div class="mpc-caption">oval</div></div>').appendTo("#mpc-tools");
-      $('.mpc-tool.mpc-tool-oval').draggable({revert: true});
-      PaintElementEvent.trigger($('.mpc-tool.mpc-tool-oval'));
+OvalController.putIconInToolset = function() {
+   
+   $('<div class="mpc-tool mpc-tool-oval" mpcIsStroked="true" mpcBorderWidth="1" mpcIsFilled="false" mpcFillColor="#ffffff" mpcBorderColor="#000000"><canvas></canvas><div class="mpc-caption">oval</div></div>').appendTo("#mpc-tools");
 };

@@ -15,6 +15,7 @@ OvalPainter = {
     */
    onPaintElement: function(domEl) {
       if(!$(domEl).hasClass("mpc-tool-oval")) {
+       
          return;
       }
 
