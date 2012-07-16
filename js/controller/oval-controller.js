@@ -2,7 +2,7 @@
  * Represents controller for all the oval objects,
  * including tool icons and canvas oval shapes
  */
-OvalController = new ShapeControllerBuilder("mpc-tool-oval").init();
+OvalController = new ShapeControllerCreator("mpc-tool-oval").init();
 
 OvalController.putIconInToolset = function() {
    

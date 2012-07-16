@@ -1,7 +1,7 @@
 /**
  * Controller for rectangle shapes
  */
-RectangleController = new ShapeControllerBuilder("mpc-tool-rectangle").init();
+RectangleController = new ShapeControllerCreator("mpc-tool-rectangle").init();
    
    
 /**
