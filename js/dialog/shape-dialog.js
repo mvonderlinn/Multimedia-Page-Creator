@@ -61,11 +61,11 @@ ShapeDialog = {
    
    applyProperties: function() {
       var properties = {
-                        mpcIsStroked:     "" + $("#mpc-oval-dlg-is-stroked").is(":checked"),
-                        mpcBorderWidth:   parseFloat($("#mpc-oval-dlg-width").val()),
-                        mpcIsFilled:      "" + $("#mpc-oval-dlg-is-filled").is(":checked"),
-                        mpcFillColor:     $("#mpc-oval-dlg-fill-color").text(),
-                        mpcBorderColor:   $("#mpc-oval-dlg-border-color").text()
+                        mpcIsStroked:     "" + $("#mpc-shape-dlg-is-stroked").is(":checked"),
+                        mpcBorderWidth:   parseFloat($("#mpc-shape-dlg-width").val()),
+                        mpcIsFilled:      "" + $("#mpc-shape-dlg-is-filled").is(":checked"),
+                        mpcFillColor:     $("#mpc-shape-dlg-fill-color").text(),
+                        mpcBorderColor:   $("#mpc-shape-dlg-border-color").text()
                        };
 
       UpdateActiveElementEvent.trigger(properties);
