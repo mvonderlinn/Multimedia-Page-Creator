@@ -15,7 +15,9 @@ OvalDialog = {
     * Handler for
     */
    onModifyCanvasElement: function(domEl) {
-      ShapeDialog.show( domEl, "oval" );
+      if($(domEl).hasClass("mpc-tool-rectangle")) {
+         ShapeDialog.show( domEl, "rectangle" );
+      }
    }
    
 }.init();
