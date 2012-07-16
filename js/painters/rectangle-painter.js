@@ -1,4 +1,5 @@
 RectanglePainter = {
+
    paint: function(domEl) {
       var canvasEl = $(domEl).children("canvas").get(0);
       
