@@ -14,7 +14,7 @@ OvalPainter = {
     *   mpcBorderColor
     */
    onPaintElement: function(domEl) {
-      if(!$(domEl).hasClass("mpc-tool-oval")) {
+      if(!$(domEl).hasClass("mpc-tool-star")) {
        
          return;
       }
@@ -31,25 +31,31 @@ OvalPainter = {
       
       var resizeBorder = $(domEl).hasClass("mpc-tool") ? 20 : 5,
           x = 0 + resizeBorder + parseInt($(domEl).attr("mpcBorderWidth")),
-          y = 0 + resizeBorder + parseInt($(domEl).attr("mpcBorderWidth")),
+          y = 0 + resizeBorder + parseInt($(domEl).attr("mpcBorderWidth")), 
           w = canvasEl.width - resizeBorder - $(domEl).attr("mpcBorderWidth") - x,
           h = canvasEl.height - resizeBorder - $(domEl).attr("mpcBorderWidth") - y;
 
-      var kappa = .5522848;
-      ox = (w / 2) * kappa, // control point offset horizontal
-      oy = (h / 2) * kappa, // control point offset vertical
-      xe = x + w,           // x-end
-      ye = y + h,           // y-end
-      xm = x + w / 2,       // x-middle
-      ym = y + h / 2;       // y-middle
-
-      ctx.beginPath();
-      ctx.moveTo(x, ym);
-      ctx.bezierCurveTo(x, ym - oy, xm - ox, y, xm, y);
-      ctx.bezierCurveTo(xm + ox, y, xe, ym - oy, xe, ym);
-      ctx.bezierCurveTo(xe, ym + oy, xm + ox, ye, xm, ye);
-      ctx.bezierCurveTo(xm - ox, ye, x, ym + oy, x, ym);
-      ctx.closePath();
+         var lowerSide = (w<h? w : h);
+         var r = lowerSide/2;
+         var translateF = $(domEl).hasClass("mpc-tool") ? 35: lowerSide/1.7;
+         
+         ctx.translate( 
+            translateF, 
+            translateF
+         );
+         ctx.rotate(Math.PI*0.29999);
+         ctx.beginPath()  
+         ctx.moveTo(r,0);  
+         for (var i=0;i<9;i++){  
+          ctx.rotate(Math.PI/5);  
+          if(i%2 == 0) {  
+            ctx.lineTo((r/0.525731)*0.200811,0);  
+          } else {  
+            ctx.lineTo(r,0);  
+          }
+         }  
+         ctx.closePath();  
+        
 
       if( "true" === $(domEl).attr("mpcIsFilled") ) {
          ctx.fill();

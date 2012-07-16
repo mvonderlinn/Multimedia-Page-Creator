@@ -14,7 +14,7 @@ OvalPainter = {
     *   mpcBorderColor
     */
    onPaintElement: function(domEl) {
-      if(!$(domEl).hasClass("mpc-tool-oval")) {
+      if(!$(domEl).hasClass("mpc-tool-diamond")) {
        
          return;
       }
@@ -35,20 +35,11 @@ OvalPainter = {
           w = canvasEl.width - resizeBorder - $(domEl).attr("mpcBorderWidth") - x,
           h = canvasEl.height - resizeBorder - $(domEl).attr("mpcBorderWidth") - y;
 
-      var kappa = .5522848;
-      ox = (w / 2) * kappa, // control point offset horizontal
-      oy = (h / 2) * kappa, // control point offset vertical
-      xe = x + w,           // x-end
-      ye = y + h,           // y-end
-      xm = x + w / 2,       // x-middle
-      ym = y + h / 2;       // y-middle
-
       ctx.beginPath();
-      ctx.moveTo(x, ym);
-      ctx.bezierCurveTo(x, ym - oy, xm - ox, y, xm, y);
-      ctx.bezierCurveTo(xm + ox, y, xe, ym - oy, xe, ym);
-      ctx.bezierCurveTo(xe, ym + oy, xm + ox, ye, xm, ye);
-      ctx.bezierCurveTo(xm - ox, ye, x, ym + oy, x, ym);
+      ctx.moveTo(x + w/2,y);
+      ctx.lineTo(x, y + h/2);
+      ctx.lineTo(x + w/2,y+h);
+      ctx.lineTo(x+w,y+h/2);
       ctx.closePath();
 
       if( "true" === $(domEl).attr("mpcIsFilled") ) {
