@@ -1,8 +1,14 @@
 /**
  * General shape controller builder
  */
-ShapeControllerCreator = function(shapeClass) {
+ShapeControllerCreator = function(shapeClass, additionalMethods) {
    this.shapeClass = shapeClass;
+   
+   if(arguments.length > 1) {
+      for(var i in additionalMethods) {
+         this[i] = additionalMethods[i];
+      }
+   }   
 };
 
 ShapeControllerCreator.prototype = {
