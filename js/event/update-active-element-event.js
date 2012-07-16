@@ -10,11 +10,11 @@ UpdateActiveElementEvent = {
    /**
     * 
     */
-   trigger: function() {
+   trigger: function(properties) {
       for(var oKey in this.listeners) {
          var obj = this.listeners[oKey];
          if("onUpdateActiveElement" in obj) {
-            obj.onUpdateActiveElement();
+            obj.onUpdateActiveElement(properties);
          }
       }
    },

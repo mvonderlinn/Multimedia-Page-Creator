@@ -61,6 +61,7 @@ OvalController = {
    },
    
    onUpdateActiveElement: function(properties) {
+   alert(5);
       if( $(".mpc-tool-oval.mpc-active-el").length ) {
          var domEl = $( ".mpc-tool-oval.mpc-active-el" );
          

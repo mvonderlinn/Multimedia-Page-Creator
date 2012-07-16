@@ -31,7 +31,10 @@ ShapeDialog = {
    /**
     * Handler for
     */
-   show: function(domEl, dlgLable) {
+   show: function(domEl, dlgLabel) {
+      domEl = $(domEl);
+      
+      $("#mpc-shape-dlg").attr("title", dlgLabel);
       
       if("true" === domEl.attr("mpcIsStroked") ) {
          $("#mpc-shape-dlg-is-stroked").attr("checked", "checked");

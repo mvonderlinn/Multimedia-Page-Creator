@@ -15,7 +15,7 @@ OvalDialog = {
     * Handler for
     */
    onModifyCanvasElement: function(domEl) {
-      ShapeDialog.show(domEl, "oval");
+      ShapeDialog.show( domEl, "oval" );
    }
    
 }.init();
