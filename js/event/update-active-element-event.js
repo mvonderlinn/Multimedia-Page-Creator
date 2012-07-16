@@ -1,12 +1,6 @@
 UpdateActiveElementEvent = {
-
    listeners: [],
-
-   init: function() {
-      
-      return this;
-   },
-
+   
    /**
     * 
     */
@@ -43,4 +37,4 @@ UpdateActiveElementEvent = {
       }
    }
 
-}.init();
+};

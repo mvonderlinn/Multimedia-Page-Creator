@@ -4,6 +4,7 @@ RectangleController = {
       CanvasContainerDropEvent.subscribe(this);
       CanvasElementSelectedEvent.subscribe(this);
       DeleteKeyEvent.subscribe(this);
+      UpdateActiveElementEvent.subscribe(this);
       
       return this;      
    },
@@ -41,6 +42,21 @@ RectangleController = {
       $(".mpc-tool-rectangle.mpc-active-el").remove();   
    },
    
+   onUpdateActiveElement: function(properties) {   
+      if( $(".mpc-tool-rectangle.mpc-active-el").length ) {
+
+         var domEl = $( ".mpc-tool-rectangle.mpc-active-el" );
+
+         domEl.attr( "mpcIsStroked",    properties.mpcIsStroked );
+         domEl.attr( "mpcBorderWidth",  properties.mpcBorderWidth );
+         domEl.attr( "mpcIsFilled",     properties.mpcIsFilled );
+         domEl.attr( "mpcFillColor",    properties.mpcFillColor );
+         domEl.attr( "mpcBorderColor",  properties.mpcBorderColor );
+
+         RectangleController.paint(domEl);
+      }
+   },
+
    paint: function(domEl) {
       var canvasEl = $(domEl).children("canvas").get(0);
       

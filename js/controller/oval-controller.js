@@ -63,16 +63,18 @@ OvalController = {
    onUpdateActiveElement: function(properties) {
    
       if( $(".mpc-tool-oval.mpc-active-el").length ) {
+
          var domEl = $( ".mpc-tool-oval.mpc-active-el" );
-         
+
          domEl.attr( "mpcIsStroked",    properties.mpcIsStroked );
          domEl.attr( "mpcBorderWidth",  properties.mpcBorderWidth );
          domEl.attr( "mpcIsFilled",     properties.mpcIsFilled );
          domEl.attr( "mpcFillColor",    properties.mpcFillColor );
          domEl.attr( "mpcBorderColor",  properties.mpcBorderColor );
-         
-         RectangleController.paint(domEl);
+
+         OvalController.paint(domEl);
       }
+
    },
    
    /**
