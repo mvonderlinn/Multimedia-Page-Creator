@@ -26,6 +26,7 @@
  <script type="text/javascript" src="js/event/canvas-element-selected-event.js"></script>
  <script type="text/javascript" src="js/event/modify-canvas-element-event.js"></script>
  <script type="text/javascript" src="js/event/delete-key-event.js"></script>
+ <script type="text/javascript" src="js/event/update-active-element-event.js"></script>
  
  <!-- controllers --> 
  
@@ -46,6 +47,7 @@
  
  <script type="text/javascript" src="js/dialog/oval-dialog.js"></script> 
  <script type="text/javascript" src="js/dialog/rectangle-dialog.js"></script> 
+ <script type="text/javascript" src="js/dialog/shape-dialog.js"></script> 
  
 </head>
 <body>
@@ -370,9 +372,9 @@
 </div>
 
 <!--   
-   Oval Dialog
+   Shape Dialog
 -->
-<div id="mpc-oval-dlg" style="display: none" title="Oval properties">
+<div id="mpc-shape-dlg" style="display: none" title="Shape properties">
    <table>
       
       <tr>
@@ -380,7 +382,7 @@
             stroked
          </td>
          <td>
-            <input type="checkbox" id="mpc-oval-dlg-is-stroked" />
+            <input type="checkbox" id="mpc-shape-dlg-is-stroked" />
          </td>
       </tr>
       
@@ -389,7 +391,7 @@
             border width
          </td>
          <td>
-            <input type="text" id="mpc-oval-dlg-width" name="" value="1" />
+            <input type="text" id="mpc-shape-dlg-width" name="" value="1" />
          </td>
       </tr>
       
@@ -398,7 +400,7 @@
             border color
          </td>
          <td>
-            <span id="mpc-oval-dlg-border-color">#000000</span>
+            <span id="mpc-shape-dlg-border-color">#000000</span>
          </td>
       </tr>
       
@@ -407,7 +409,7 @@
             filled
          </td>
          <td>
-            <input type="checkbox" id="mpc-oval-dlg-is-filled"/>
+            <input type="checkbox" id="mpc-shape-dlg-is-filled"/>
          </td>
       </tr>  
 
@@ -416,13 +418,13 @@
             fill color
          </td>
          <td>
-            <span id="mpc-oval-dlg-fill-color">#ffffff</span>
+            <span id="mpc-shape-dlg-fill-color">#ffffff</span>
          </td>
       </tr>
       
       <tr>
          <td colspan="2" style="text-align: center">
-            <input type="button" value="ok" id="mpc-oval-dlg-ok-btn" />
+            <input type="button" value="ok" id="mpc-shape-dlg-ok-btn" />
          </td>
       </tr>
    </table>

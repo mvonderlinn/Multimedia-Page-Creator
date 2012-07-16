@@ -17,7 +17,7 @@ RectangleDialog = {
          RectangleDialog.applyProperties();
          var domEl = $(".mpc-tool-oval.mpc-active-el");
          RectangleController.paint(domEl);
-         $("#mpc-oval-dlg").dialog("close");         
+         $("#mpc-oval-dlg").dialog("close");
       });
       
       $("#mpc-oval-dlg-border-color").ColorPicker( {
