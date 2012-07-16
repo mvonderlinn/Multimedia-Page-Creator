@@ -1,4 +1,4 @@
-OvalPainter = {
+HeartPainter = {
    
    init: function() {
       PaintElementEvent.subscribe(this);
@@ -7,14 +7,15 @@ OvalPainter = {
    },   
    
    /**
-    * Paints an oval basing on following properties:
+    * Paints a heart basing on following properties:
     *   mpcBorderWidth 
     *   mpcIsFilled 
     *   mpcFillColor 
     *   mpcBorderColor
     */
    onPaintElement: function(domEl) {
-      if(!$(domEl).hasClass("mpc-tool-oval")) {
+   
+      if(!$(domEl).hasClass("mpc-tool-heart")) {
        
          return;
       }
@@ -35,21 +36,19 @@ OvalPainter = {
           w = canvasEl.width - resizeBorder - $(domEl).attr("mpcBorderWidth") - x,
           h = canvasEl.height - resizeBorder - $(domEl).attr("mpcBorderWidth") - y;
 
-      var kappa = .5522848;
-      ox = (w / 2) * kappa, // control point offset horizontal
-      oy = (h / 2) * kappa, // control point offset vertical
-      xe = x + w,           // x-end
-      ye = y + h,           // y-end
-      xm = x + w / 2,       // x-middle
-      ym = y + h / 2;       // y-middle
+      var x0 = x + 0.5 * w, y0 = y + 0.3 * h;
+      var x1 = x + 0.1 * w, y1 = y + 0.0 * h;
+      var x2 = x + 0.0 * w, y2 = y + 0.6 * h;
+      var x3 = x + 0.5 * w, y3 = y + 0.9 * h;
+      var x4 = x + 1.0 * w, y4 = y + 0.6 * h;
+      var x5 = x + 0.9 * w, y5 = y + 0.0 * h;
 
+   
       ctx.beginPath();
-      ctx.moveTo(x, ym);
-      ctx.bezierCurveTo(x, ym - oy, xm - ox, y, xm, y);
-      ctx.bezierCurveTo(xm + ox, y, xe, ym - oy, xe, ym);
-      ctx.bezierCurveTo(xe, ym + oy, xm + ox, ye, xm, ye);
-      ctx.bezierCurveTo(xm - ox, ye, x, ym + oy, x, ym);
-      ctx.closePath();
+
+      ctx.moveTo(x0,y0);
+      ctx.bezierCurveTo(x1,y1,x2,y2,x3,y3);
+      ctx.bezierCurveTo(x4,y4,x5,y5,x0,y0);
 
       if( "true" === $(domEl).attr("mpcIsFilled") ) {
          ctx.fill();

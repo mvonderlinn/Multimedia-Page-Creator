@@ -1,10 +1,5 @@
-/**
- * Oval dialog
- */
-OvalDialog = {
-   /**
-    * 
-    */
+RectangleDialog = {
+
    init: function() {
       ModifyCanvasElementEvent.subscribe(this);
       
@@ -16,7 +11,7 @@ OvalDialog = {
     */
    onModifyCanvasElement: function(domEl) {
       if($(domEl).hasClass("mpc-tool-rectangle")) {
-         ShapeDialog.show( domEl, "rectangle" );
+         ShapeDialog.show( domEl, "Rectangle" );
       }
    }
    

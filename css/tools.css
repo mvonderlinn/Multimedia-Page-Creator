@@ -67,7 +67,7 @@
    height: 70px;
 }
 
-.mpc-tool-pdf {
+.mpc-tool-star {
    position: absolute;
    top: 365px;
    left: 94px;
@@ -75,7 +75,7 @@
    height: 70px;
 }
 
-.mpc-tool-image {
+.mpc-tool-diamond {
    position: absolute;
    top: 443px;
    left: 15px;
@@ -86,6 +86,22 @@
 .mpc-tool-youtube {
    position: absolute;
    top: 443px;
+   left: 94px;
+   width: 70px;
+   height: 70px;
+}
+
+.mpc-tool-pdf {
+   position: absolute;
+   top: 521px;
+   left: 15px;
+   width: 70px;
+   height: 70px;
+}
+
+.mpc-tool-image {
+   position: absolute;
+   top: 521px;
    left: 94px;
    width: 70px;
    height: 70px;

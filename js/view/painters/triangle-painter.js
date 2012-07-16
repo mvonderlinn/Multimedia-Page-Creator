@@ -1,4 +1,4 @@
-RectanglePainter = {
+TrianglePainter = {
    
    init: function() {
       PaintElementEvent.subscribe(this);
@@ -7,7 +7,7 @@ RectanglePainter = {
    },
    
    onPaintElement: function(domEl) {
-      if(!$(domEl).hasClass("mpc-tool-rectangle")) {
+      if(!$(domEl).hasClass("mpc-tool-triangle")) {
          return;
       }
    
@@ -29,12 +29,15 @@ RectanglePainter = {
       
       ctx.beginPath();
 
-      ctx.rect( x, y, w, h );
+      ctx.moveTo( x, y + h );
+      ctx.lineTo( x + w, y + h );
+      ctx.lineTo( x + w/2, y );
+      ctx.closePath();
 
       if( "true" === $(domEl).attr("mpcIsFilled") ) {
          ctx.fill();
       }
-
+      
       if( "true" === $(domEl).attr("mpcIsStroked") ) {
          ctx.stroke();
       }

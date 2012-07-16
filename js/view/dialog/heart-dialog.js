@@ -1,4 +1,4 @@
-OvalDialog = {
+HeartDialog = {
 
    init: function() {
       ModifyCanvasElementEvent.subscribe(this);
@@ -7,8 +7,8 @@ OvalDialog = {
    },
    
    onModifyCanvasElement: function(domEl) {
-      if( $( domEl ).hasClass("mpc-tool-oval") ) {
-         ShapeDialog.show( domEl, "Oval" );
+      if( $( domEl ).hasClass("mpc-tool-heart") ) {
+         ShapeDialog.show( domEl, "Heart" );
       }
    }
    
