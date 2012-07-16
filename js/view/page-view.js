@@ -1,6 +1,6 @@
 PageView = {
 
-   init: function() {
+   init: function() {      
       PageLoadedEvent.subscribe(this);
       
       return this;
