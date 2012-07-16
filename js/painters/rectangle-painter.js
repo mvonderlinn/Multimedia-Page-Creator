@@ -27,6 +27,11 @@ RectanglePainter = {
       if( "true" === $(domEl).attr("mpcIsFilled") ) {
          ctx.fill();
       }
+   },
+   
+   paintActive: function() {
+      if( $( ".mpc-tool-rectangle.mpc-active-el" ).length ) {
+         this.paint( $( ".mpc-tool-rectangle.mpc-active-el" ) );
+      }
    }
- 
 };
