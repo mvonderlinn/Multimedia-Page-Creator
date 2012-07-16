@@ -21,12 +21,7 @@ OvalController = {
     * Handler being called right after openning MPC
     */
    onPageLoaded: function() {
-      $(".mpc-tool-oval").each(function() {
-         OvalPainter.paint( this );
-      });
-      $(".mpc-tool-oval").draggable({
-         revert: true
-      });
+      ShapeController.onPageLoaded(".mpc-tool-oval");
    },
    
    /**
@@ -37,7 +32,7 @@ OvalController = {
          domEl.draggable({revert: false});
          this.locateOnCanvas( domEl );
          this.addDefaultAttrs( domEl );
-         OvalPainter.paint( domEl );
+         PaintElementEvent.trigger( domEl );
          this.addNewIcon();
       }
    },
@@ -72,7 +67,7 @@ OvalController = {
          domEl.attr( "mpcFillColor",    properties.mpcFillColor );
          domEl.attr( "mpcBorderColor",  properties.mpcBorderColor );
 
-         OvalPainter.paintActive();
+         PaintElementEvent.trigger(domEl);
       }
 
    },
@@ -135,7 +130,7 @@ OvalController = {
         handles: "n, e, s, w, ne, se, sw, nw",
         containment: "#mpc-canvas-container",
         resize: function(event, ui) {
-           OvalPainter.paint( this );
+           PaintElementEvent.trigger( this );
         }
      });   
    },
@@ -159,7 +154,7 @@ OvalController = {
    addNewIcon: function() {
       $('<div class="mpc-tool mpc-tool-oval" mpcIsStroked="true" mpcBorderWidth="1" mpcIsFilled="false" mpcFillColor="#ffffff" mpcBorderColor="#000000"><canvas></canvas><div class="mpc-caption">oval</div></div>').appendTo("#mpc-tools");
       $('.mpc-tool.mpc-tool-oval').draggable({revert: true});
-      OvalPainter.paint($('.mpc-tool.mpc-tool-oval'));
+      PaintElementEvent.trigger($('.mpc-tool.mpc-tool-oval'));
    }
    
 }.init();

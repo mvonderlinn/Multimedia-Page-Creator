@@ -11,13 +11,7 @@ RectangleController = {
    },
    
    onPageLoaded: function() {
-      $(".mpc-tool-rectangle").each(function() {
-         RectanglePainter.paint( this );
-      });
-      
-      $(".mpc-tool-rectangle").draggable({
-         revert: true
-      });      
+      ShapeController.onPageLoaded(".mpc-tool-rectangle");
    },
    
    onCanvasContainerDrop: function(domEl) {
@@ -25,7 +19,7 @@ RectangleController = {
          domEl.draggable({revert: false});
          this.locateOnCanvas( domEl );
          this.addDefaultAttrs( domEl );
-         RectanglePainter.paint( domEl );
+         PaintElementEvent.trigger( domEl );
          this.addNewIcon();
       }
    },
@@ -54,7 +48,7 @@ RectangleController = {
          domEl.attr( "mpcFillColor",    properties.mpcFillColor );
          domEl.attr( "mpcBorderColor",  properties.mpcBorderColor );
 
-         RectanglePainter.paintActive();
+         PaintElementEvent.trigger(domEl);
       }
    },
    
@@ -112,7 +106,7 @@ RectangleController = {
         handles: "n, e, s, w, ne, se, sw, nw ",
         containment: "#mpc-canvas-container",
         resize: function(event, ui) {
-           RectanglePainter.paint( this );
+           PaintElementEvent.trigger( this );
         }
      });   
    },
@@ -136,7 +130,7 @@ RectangleController = {
    addNewIcon: function() {
       $('<div class="mpc-tool mpc-tool-rectangle" mpcIsStroked="true" mpcBorderWidth="1" mpcIsFilled="false" mpcFillColor="#ffffff" mpcBorderColor="#000000"><canvas></canvas><div class="mpc-caption">rectangle</div></div>').appendTo("#mpc-tools");
       $('.mpc-tool.mpc-tool-rectangle').draggable({revert: true});
-      RectanglePainter.paint($('.mpc-tool.mpc-tool-rectangle'));
+      PaintElementEvent.trigger($('.mpc-tool.mpc-tool-rectangle'));
    }   
    
 }.init();

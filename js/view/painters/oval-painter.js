@@ -1,5 +1,11 @@
 OvalPainter = {
-
+   
+   init: function() {
+      PaintElementEvent.subscribe(this);
+      
+      return this;
+   },   
+   
    /**
     * Paints an oval basing on following properties:
     *   mpcBorderWidth 
@@ -7,7 +13,11 @@ OvalPainter = {
     *   mpcFillColor 
     *   mpcBorderColor
     */
-   paint: function(domEl) {
+   onPaintElement: function(domEl) {
+      if(!$(domEl).hasClass("mpc-tool-oval")) {
+         return;
+      }
+
       var canvasEl = $(domEl).children("canvas").get(0);
       
       canvasEl.width = $(domEl).width(); 
@@ -47,11 +57,6 @@ OvalPainter = {
       if( "true" === $(domEl).attr("mpcIsFilled") ) {
          ctx.fill();
       }
-   },
-   
-   paintActive: function() {
-      if( $( ".mpc-tool-oval.mpc-active-el" ).length ) {
-         this.paint( $( ".mpc-tool-oval.mpc-active-el" ) );
-      }
    }
-};
+   
+}.init();

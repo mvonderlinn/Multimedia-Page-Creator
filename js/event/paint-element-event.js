@@ -2,16 +2,6 @@ PaintElementEvent = {
 
    listeners: [],
 
-   onPageLoaded: function() {
-      $(document).keypress(function(ev) {         
-         var delKeyCode = 46;
-         var k = ev.which ? ev.which : ev.keyCode;
-         if(k === delKeyCode) {
-            DeleteKeyEvent.trigger();
-         }
-      });
-   },
-
    /**
     * ChainOfResponsibility
     */
@@ -48,4 +38,4 @@ PaintElementEvent = {
       }
    }
 
-}.init();
+};

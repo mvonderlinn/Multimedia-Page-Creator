@@ -1,6 +1,16 @@
 RectanglePainter = {
-
-   paint: function(domEl) {
+   
+   init: function() {
+      PaintElementEvent.subscribe(this);
+      
+      return this;
+   },
+   
+   onPaintElement: function(domEl) {
+      if(!$(domEl).hasClass("mpc-tool-rectangle")) {
+         return;
+      }
+   
       var canvasEl = $(domEl).children("canvas").get(0);
       
       canvasEl.width = $(domEl).width();
@@ -28,11 +38,6 @@ RectanglePainter = {
       if( "true" === $(domEl).attr("mpcIsFilled") ) {
          ctx.fill();
       }
-   },
-   
-   paintActive: function() {
-      if( $( ".mpc-tool-rectangle.mpc-active-el" ).length ) {
-         this.paint( $( ".mpc-tool-rectangle.mpc-active-el" ) );
-      }
    }
-};
+
+}.init();
