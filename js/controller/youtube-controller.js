@@ -27,7 +27,10 @@ YoutubeController = {
          domEl.draggable({revert: false});
          this.locateOnCanvas( domEl );
          this.addDefaultAttrs( domEl );
-         PaintElementEvent.trigger( domEl );
+         /**
+          * calling a dialog to initialize youtube element
+          */
+         ModifyCanvasElementEvent.trigger(domEl);
          this.addNewIcon();
       }
    },
@@ -55,16 +58,12 @@ YoutubeController = {
       if( $("." + this.shapeClass + ".mpc-active-el").length ) {
          var domEl = $( "." + this.shapeClass + ".mpc-active-el" );
 
-         domEl.attr( "mpcIsStroked",    properties.mpcIsStroked );
-         domEl.attr( "mpcBorderWidth",  properties.mpcBorderWidth );
-         domEl.attr( "mpcIsFilled",     properties.mpcIsFilled );
-         domEl.attr( "mpcFillColor",    properties.mpcFillColor );
-         domEl.attr( "mpcBorderColor",  properties.mpcBorderColor );
-
+         domEl.attr("mpcURL", properties.mpcURL);
          PaintElementEvent.trigger(domEl);
       }
    },
 
+   
    /**
     * Transforms a tool icon into graphical object
     * on canvas
@@ -73,6 +72,7 @@ YoutubeController = {
       domEl.removeClass( "mpc-tool" );
       
       domEl.children( ".mpc-caption" ).remove();
+      domEl.children( "img" ).remove();
 
       domEl.detach();
       domEl.appendTo("#mpc-canvas-container");
@@ -115,11 +115,6 @@ YoutubeController = {
           CanvasElementSelectedEvent.trigger(this);
           ModifyCanvasElementEvent.trigger(this);
        });
-       
-       /**
-        * calling a dialog to initialize youtube element
-        */
-       ModifyCanvasElementEvent.trigger(this);
    },
 
    enableResizing: function(domEl) {
@@ -138,11 +133,7 @@ YoutubeController = {
     * of newly created canvas graphical object
     */
    addDefaultAttrs: function( domEl ) {
-      domEl.attr("mpcIsStroked", "true");
-      domEl.attr("mpcBorderWidth", "1.0");
-      domEl.attr("mpcIsFilled", "false");
-      domEl.attr("mpcFillColor", "#000000");
-      domEl.attr("mpcBorderColor", "#000000");
+      domEl.attr("mpcURL", "http://www.youtube.com/watch?v=aP6sxOiy1ec");
    },
 
    addNewIcon: function() {

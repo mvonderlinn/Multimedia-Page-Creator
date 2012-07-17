@@ -12,8 +12,8 @@ YoutubeDialog = {
    },
 
    onModifyCanvasElement: function(domEl) {
-      if($(domEl).hasClass("mpc-tool-youtube")) {
-         ShapeDialog.show( domEl );
+      if($(domEl).hasClass("mpc-tool-youtube")) {      
+         this.show( domEl );
       }
    },
 
@@ -41,7 +41,6 @@ YoutubeDialog = {
                        };
 
       UpdateActiveElementEvent.trigger(properties);
-
    }   
    
 }.init();
