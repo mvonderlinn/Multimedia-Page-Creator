@@ -69,6 +69,7 @@
  <script type="text/javascript" src="js/view/dialog/star-dialog.js"></script> 
  <script type="text/javascript" src="js/view/dialog/diamond-dialog.js"></script> 
  <script type="text/javascript" src="js/view/dialog/heart-dialog.js"></script> 
+ <script type="text/javascript" src="js/view/dialog/youtube-dialog.js"></script> 
  
 </head>
 <body>
@@ -224,12 +225,7 @@
          </div>
       </div>
       
-      <div class="mpc-tool mpc-tool-youtube">
-         <img src="im/youtube-icon.png" alt="" width="50" height="21" style="border:0"/>
-         <div class="mpc-caption">
-            video
-         </div>
-      </div>
+      
        
    </div>
 
@@ -414,6 +410,30 @@
             <input type="button" value="ok" id="mpc-shape-dlg-ok-btn" />
          </td>
       </tr>
+   </table>
+</div>
+
+<!--   
+   Youtube Dialog
+-->
+<div id="mpc-youtube-dlg" style="display: none" title="Youtube properties">
+   <table>
+
+      <tr>
+         <td style="text-align: right">
+            URL
+         </td>
+         <td>
+            <input type="text" id="mpc-youtube-dlg-url" value="" />
+         </td>
+      </tr>
+      
+      <tr>
+         <td style="text-align: right" colspan="2" style="text-align: center">
+            <input type="button" value="ok" id="mpc-youtube-ok-btn" />
+         </td>         
+      </tr>
+      
    </table>
 </div>
 
