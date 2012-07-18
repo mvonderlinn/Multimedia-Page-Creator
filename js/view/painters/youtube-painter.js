@@ -21,6 +21,19 @@ YoutubePainter = {
       var width = $(domEl).width(),
           height = $(domEl).height(),
           url = $(domEl).attr("mpcURL");
+          
+          if(url.indexOf("&") > 0) {
+            url = url.substr(0, url.indexOf("&"));
+          }
+          
+          url = url.replace("watch?v=","embed/");
+          
+      width=450;
+      height=338;
+      
+      $(domEl).width(width);
+      $(domEl).height(width);
+      $(domEl).children("iframe").remove();
       
       $('<iframe width="' 
             + width 

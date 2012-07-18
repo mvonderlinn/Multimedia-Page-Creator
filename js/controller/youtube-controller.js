@@ -122,7 +122,7 @@ YoutubeController = {
          disabled: false,
          handles: "n, e, s, w, ne, se, sw, nw",
          containment: "#mpc-canvas-container",
-         resize: function(event, ui) {
+         stop: function(event, ui) {
             PaintElementEvent.trigger( this );
          }
       });   
