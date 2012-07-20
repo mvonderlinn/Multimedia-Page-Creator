@@ -2,9 +2,26 @@ YoutubePainter = {
    
    init: function() {
       PaintElementEvent.subscribe(this);
-      
+      PageLoadedEvent.subscribe(this);
+
       return this;
-   },   
+   }, 
+
+   onPageLoaded: function() {
+
+      onYouTubeIframeAPIReady = function() {
+         player = new YT.Player('player', {
+          height: '390',
+          width: '640',
+          videoId: 'u1zgFlCw8Aw',
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      };
+
+   },
    
    /**
     * Paints an oval basing on following properties:
@@ -27,25 +44,27 @@ YoutubePainter = {
           }
           
           url = url.replace("watch?v=","embed/");
-          
-      width=450;
-      height=338;
+          url = url + "?html5=1";
+      alert(url);
+      width = 500;
+      height = 400;
       
       $(domEl).width(width);
       $(domEl).height(width);
       $(domEl).children("iframe").remove();
       
-      $('<iframe width="' 
+      $('<iframe class="mpc-youtube-iframe" width="' 
             + width 
             + '" height="'
             + height
             + '" src="'
             + url
             + '" frameborder="0" allowfullscreen></iframe>').appendTo(domEl);
-            
-      $(domEl).children("iframe").click(function() {
-         alert("moby");
-      });
+          
+     // $(domEl).children(".mpc-youtube-iframe").hide();
+    
+    
+
    }
    
 }.init();
