@@ -18,7 +18,9 @@ HyperlinkPainter = {
          return;
       }
       
-      var url = $(domEl).attr("mpcURL");
+      var url = $(domEl).attr("mpcURL"),
+          width = $(domEl).width(),
+          height = $(domEl).height();
       
       if(!url || url.length == 0) {
          alert('please fill the correct url');
@@ -30,7 +32,13 @@ HyperlinkPainter = {
       }
       
       $(domEl).children("a").remove();
-      $('<a href="' + url + '"></a>').appendTo(domEl);
+      $('<a href="' 
+         + url 
+         + '" style="display: block; width: ' 
+         + width
+         + 'px; height: '
+         + height 
+         + 'px;" target="_blank"></a>').appendTo(domEl);
       
    }
    
