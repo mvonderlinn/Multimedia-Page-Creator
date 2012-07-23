@@ -9,14 +9,14 @@ HyperlinkDialog = {
    },
 
    onModifyCanvasElement: function(domEl) {
-      if($(domEl).hasClass("mpc-tool-youtube")) {      
+      if($(domEl).hasClass("mpc-tool-hyperlink")) {      
          this.show( domEl );
       }
    },
 
    onPageLoaded: function() {
-      $("#mpc-youtube-ok-btn").click(function() {
-         $("#mpc-youtube-dlg").dialog("close");
+      $("#mpc-hyperlink-ok-btn").click(function() {
+         $("#mpc-hyperlink-dlg").dialog("close");
          YoutubeDialog.applyProperties();
       });
    },
@@ -27,14 +27,14 @@ HyperlinkDialog = {
    show: function(domEl) {
       domEl = $(domEl);
       
-      $("#mpc-youtube-dlg-url").text(domEl.attr("mpcURL"));
+      $("#mpc-hyperlink-dlg-url").text(domEl.attr("mpcURL"));
 
-      $("#mpc-youtube-dlg").dialog({modal:true, title: this.dlgLabel});
+      $("#mpc-hyperlink-dlg").dialog({modal:true, title: this.dlgLabel});
    },
    
    applyProperties: function() {
       var properties = {
-                        mpcURL: $("#mpc-youtube-dlg-url").val()
+                        mpcURL: $("#mpc-hyperlink-dlg-url").val()
                        };
 
       UpdateActiveElementEvent.trigger(properties);
