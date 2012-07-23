@@ -211,23 +211,13 @@
       
       <div id="mpc-tool-label">Drag to canvas...</div>
       
-      
       <div class="mpc-tool mpc-tool-pdf">
          <img src="im/pdf-icon.png" alt="" width="35" height="35" style="border:0"/>
          <div class="mpc-caption">
             document
          </div>
-      </div>
+      </div> 
 
-      <div class="mpc-tool mpc-tool-image">
-         <img src="im/image-icon.png" alt="" width="50" height="36" style="border:0"/>
-         <div class="mpc-caption">
-            image
-         </div>
-      </div>
-      
-      
-       
    </div>
 
 <!-- Custom Canvas Properties -->
@@ -437,7 +427,6 @@
       
    </table>
 </div>
-
 <!--   
    Hyperlink Dialog
 -->
@@ -456,6 +445,30 @@
       <tr>
          <td style="text-align: right" colspan="2" style="text-align: center">
             <input type="button" value="ok" id="mpc-hyperlink-ok-btn" />
+         </td>         
+      </tr>
+      
+   </table>
+</div>
+
+<!--   
+   Image Dialog
+-->
+<div id="mpc-image-dlg" style="display: none" title="Image properties">
+   <table>
+
+      <tr>
+         <td style="text-align: right">
+            image
+         </td>
+         <td>
+            <input type="file" accept="image" multiple="multiple" id="mpc-image-dlg-file" />
+         </td>
+      </tr>
+      
+      <tr>
+         <td style="text-align: right" colspan="2" style="text-align: center">
+            <input type="button" value="ok" id="mpc-image-ok-btn" />
          </td>         
       </tr>
       
