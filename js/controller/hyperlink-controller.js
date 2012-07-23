@@ -78,7 +78,9 @@ HyperlinkController = {
    
    addBlueBorder: function() {
       
-      $(".mpc-tool-hyperlink a").text( $(".mpc-tool-hyperlink").attr("mpcURL") );
+      $(".mpc-tool-hyperlink a").each(function(ind,el) {
+         text( $(".mpc-tool-hyperlink").attr("mpcURL") );
+      });
       
       $(".mpc-tool-hyperlink a").addClass("mpc-blue-border");
    },
