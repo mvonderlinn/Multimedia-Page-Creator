@@ -29,7 +29,8 @@ HyperlinkPainter = {
 
       if( -1 == url.toLowerCase().indexOf("http://") ) {
          url = "http://" + url;
-      }
+         $(domEl).attr("mpcURL", url);
+      }      
       
       $(domEl).children("a").remove();
       $('<a href="' 
@@ -45,7 +46,9 @@ HyperlinkPainter = {
                $(this).parent().trigger("click");
                return false;
             }
-         });
+      });
+      
+      $(domEl).children("a").text(url);
    }
    
 }.init();

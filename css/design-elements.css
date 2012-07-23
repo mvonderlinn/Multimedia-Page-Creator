@@ -217,3 +217,7 @@ INPUT.mpc-field {
 .mpc-blue-border {
    border: 1px solid blue;
 }
+
+.mpc-tool-hyperlink a {
+   text-align: center;
+}

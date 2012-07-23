@@ -23,7 +23,10 @@ HyperlinkController = {
     * Handler for dropping a tool on canvas
     */
    onCanvasContainerDrop: function(domEl) {
+      this.removeBlueBorder();
       if ( domEl.hasClass(this.shapeClass) && domEl.hasClass( "mpc-tool" ) ) {
+         this.addBlueBorder();
+         
          domEl.draggable({revert: false});
          this.locateOnCanvas( domEl );
          this.addDefaultAttrs( domEl );
@@ -74,10 +77,16 @@ HyperlinkController = {
    },
    
    addBlueBorder: function() {
+      
+      $(".mpc-tool-hyperlink a").text( $(".mpc-tool-hyperlink").attr("mpcURL") );
+      
       $(".mpc-tool-hyperlink a").addClass("mpc-blue-border");
    },
    
    removeBlueBorder: function() {
+
+      $(".mpc-tool-hyperlink a").text("");
+      
       $(".mpc-tool-hyperlink a").removeClass("mpc-blue-border");
    },
    
