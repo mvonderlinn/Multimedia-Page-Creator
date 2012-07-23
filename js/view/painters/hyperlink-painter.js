@@ -26,7 +26,10 @@ HyperlinkPainter = {
       if( -1 == url.toLowerCase().indexOf("http://") ) {
          url = "http://" + url;
       }
-
+      
+      $(domEl).children("a").remove();
+      $('<a href=""></a>').appendTo(domEl);
+      
    }
    
 }.init();
