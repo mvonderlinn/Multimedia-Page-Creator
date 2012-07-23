@@ -31,21 +31,37 @@ ImageDialog = {
    },
    
    applyProperties: function() {
-      var imagDataURLs = [];
+      var imgDataURLs = [];
 
       var files = document.getElementById("mpc-image-dlg-file").files;
-
+      var len = files.length;
+      
       for(var index in files) {
          var f = files[index];
-         console.log(f);
+         
+         if(f.type.match('image.*')) {         
+            var reader = new FileReader();
+            
+            reader.onload = (function(index, len, ar) {
+               return function(ev) {
+                  alert(5);
+                  ar.push(ev.target.result);
+                  
+                  if(index == (len -1) ){
+                     var properties = {
+                           mpcImages: imgDataURLs
+                          };
+                          
+                          alert("yo");
+                     UpdateActiveElementEvent.trigger(properties);
+                  }
+
+               };
+            })(index,len,imgDataURLs);
+            
+            reader.readAsDataURL( f );
+         }
       }
-      
-
-      var properties = {
-                        mpcImages: imagDataURLs
-                       };
-
-      UpdateActiveElementEvent.trigger(properties);
-   }   
+   }
    
 }.init();
