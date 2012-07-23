@@ -28,7 +28,7 @@ HyperlinkPainter = {
       }
       
       $(domEl).children("a").remove();
-      $('<a href=""></a>').appendTo(domEl);
+      $('<a href="' + url + '"></a>').appendTo(domEl);
       
    }
    
