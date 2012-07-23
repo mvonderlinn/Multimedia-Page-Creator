@@ -213,3 +213,7 @@ INPUT.mpc-field {
    width: 9px;
    height: 9px;
 }
+
+.mpc-blue-border {
+   border: 1px solid blue;
+}

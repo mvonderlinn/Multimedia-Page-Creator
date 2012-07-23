@@ -19,8 +19,8 @@ HyperlinkPainter = {
       }
       
       var url = $(domEl).attr("mpcURL"),
-          width = $(domEl).width(),
-          height = $(domEl).height();
+          width = $(domEl).width() - 5,
+          height = $(domEl).height() - 5;
       
       if(!url || url.length == 0) {
          alert('please fill the correct url');
@@ -40,6 +40,12 @@ HyperlinkPainter = {
          + height 
          + 'px;" target="_blank"></a>').appendTo(domEl);
       
+      $(domEl).children("a").click(function(ev){
+            if ( $(this).parent().hasClass("mpc-active-el") || $(this).hasClass("mpc-blue-border") ) {
+               $(this).parent().trigger("click");
+               return false;
+            }
+         });
    }
    
 }.init();

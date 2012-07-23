@@ -28,21 +28,31 @@ HyperlinkController = {
          this.locateOnCanvas( domEl );
          this.addDefaultAttrs( domEl );
          /**
-          * calling a dialog to initialize youtube element
+          * calling a dialog to initialize hyperlink element
           */
          ModifyCanvasElementEvent.trigger(domEl);
+         this.addBlueBorder();
+         $(domEl).children("a").removeClass("mpc-blue-border");
+         
          this.addNewIcon();
       }
    },
-
+   
    /**
     * Handler for selecting shape
     */
    onCanvasElementSelected: function( domEl ) {
+      this.removeBlueBorder();
+
       if( $(domEl).hasClass( this.shapeClass ) ){
+         this.addBlueBorder();
+         
          $(".mpc-active-el").resizable( "destroy" );
          $(".mpc-active-el").removeClass( "mpc-active-el" );         
+         
+         $(domEl).children("a").removeClass( "mpc-blue-border" );         
          $(domEl).addClass( "mpc-active-el" );
+         
          this.enableResizing( $(domEl) );
       }
    },
@@ -55,7 +65,6 @@ HyperlinkController = {
    },
 
    onUpdateActiveElement: function(properties) {
-   console.log(properties);
       if( $("." + this.shapeClass + ".mpc-active-el").length ) {
          var domEl = $( "." + this.shapeClass + ".mpc-active-el" );
 
@@ -63,7 +72,14 @@ HyperlinkController = {
          PaintElementEvent.trigger(domEl);
       }
    },
-
+   
+   addBlueBorder: function() {
+      $(".mpc-tool-hyperlink a").addClass("mpc-blue-border");
+   },
+   
+   removeBlueBorder: function() {
+      $(".mpc-tool-hyperlink a").removeClass("mpc-blue-border");
+   },
    
    /**
     * Transforms a tool icon into graphical object
@@ -116,6 +132,8 @@ HyperlinkController = {
           CanvasElementSelectedEvent.trigger(this);
           ModifyCanvasElementEvent.trigger(this);
        });
+       
+       
    },
 
    enableResizing: function(domEl) {
