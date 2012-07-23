@@ -2,26 +2,9 @@ YoutubePainter = {
    
    init: function() {
       PaintElementEvent.subscribe(this);
-      PageLoadedEvent.subscribe(this);
 
       return this;
    }, 
-
-   onPageLoaded: function() {
-
-      onYouTubeIframeAPIReady = function() {
-         player = new YT.Player('player', {
-          height: '390',
-          width: '640',
-          videoId: 'u1zgFlCw8Aw',
-          events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-          }
-        });
-      };
-
-   },
    
    /**
     * Paints an oval basing on following properties:
@@ -43,28 +26,35 @@ YoutubePainter = {
             url = url.substr(0, url.indexOf("&"));
           }
           
+          if(!url || url.length == 0) {
+            alert('please fill the correct url');
+            $(domEl).remove();
+          }
+          
           url = url.replace("watch?v=","embed/");
           url = url + "?html5=1";
-      alert(url);
-      width = 500;
-      height = 400;
+          
+          
+      if( -1 == url.toLowerCase().indexOf("http://") ) {
+         url = "http://" + url;
+      }
+      
+      width = width;
+      height = height;
       
       $(domEl).width(width);
       $(domEl).height(width);
       $(domEl).children("iframe").remove();
       
+      $('<div class="mpc-youtube-iframe"></div>').appendTo(domEl);
+      
       $('<iframe class="mpc-youtube-iframe" width="' 
-            + width 
+            + (width - 20)
             + '" height="'
-            + height
+            + (height - 20)
             + '" src="'
             + url
             + '" frameborder="0" allowfullscreen></iframe>').appendTo(domEl);
-          
-     // $(domEl).children(".mpc-youtube-iframe").hide();
-    
-    
-
    }
    
 }.init();
