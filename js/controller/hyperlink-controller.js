@@ -55,6 +55,7 @@ HyperlinkController = {
    },
 
    onUpdateActiveElement: function(properties) {
+   console.log(properties);
       if( $("." + this.shapeClass + ".mpc-active-el").length ) {
          var domEl = $( "." + this.shapeClass + ".mpc-active-el" );
 
@@ -133,7 +134,7 @@ HyperlinkController = {
     * of newly created canvas graphical object
     */
    addDefaultAttrs: function( domEl ) {
-      domEl.attr("mpcURL", "http://www.youtube.com/watch?v=aP6sxOiy1ec");
+      domEl.attr("mpcURL", "/");
    },
 
    addNewIcon: function() {

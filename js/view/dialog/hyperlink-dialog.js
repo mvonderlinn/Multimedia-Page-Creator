@@ -9,7 +9,7 @@ HyperlinkDialog = {
    },
 
    onModifyCanvasElement: function(domEl) {
-      if($(domEl).hasClass("mpc-tool-hyperlink")) {      
+      if($(domEl).hasClass("mpc-tool-hyperlink")) {
          this.show( domEl );
       }
    },
@@ -17,7 +17,7 @@ HyperlinkDialog = {
    onPageLoaded: function() {
       $("#mpc-hyperlink-ok-btn").click(function() {
          $("#mpc-hyperlink-dlg").dialog("close");
-         YoutubeDialog.applyProperties();
+         HyperlinkDialog.applyProperties();
       });
    },
    

@@ -17,7 +17,9 @@ HyperlinkPainter = {
       if(!$(domEl).hasClass("mpc-tool-hyperlink")) {
          return;
       }
-
+      
+      var url = $(domEl).attr("mpcURL");
+      
       if(!url || url.length == 0) {
          alert('please fill the correct url');
          $(domEl).remove();
