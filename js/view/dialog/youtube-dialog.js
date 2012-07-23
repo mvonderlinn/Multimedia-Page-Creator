@@ -1,6 +1,3 @@
-/**
- * Shape dialog
- */
 YoutubeDialog = {
    dlgLabel: "Youtube",
 

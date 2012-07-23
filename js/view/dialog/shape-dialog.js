@@ -1,6 +1,3 @@
-/**
- * Shape dialog
- */
 ShapeDialog = {
    /**
     *
