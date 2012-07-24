@@ -128,7 +128,7 @@ TextController = {
          disabled: false,
          handles: "n, e, s, w, ne, se, sw, nw",
          containment: "#mpc-canvas-container",
-         stop: function(event, ui) {
+         resize: function(event, ui) {
             PaintElementEvent.trigger( this );
          }
       });   
