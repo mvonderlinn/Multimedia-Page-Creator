@@ -39,7 +39,7 @@ ImageDialog = {
       for(var index in files) {
          var f = files[index];
          
-         if(f.type.match('image.*')) {         
+         if ( 'type' in f && f.type.match( 'image.*' ) ) {
             var reader = new FileReader();
             
             reader.onload = (function(index, len, ar) {
@@ -51,8 +51,7 @@ ImageDialog = {
                      var properties = {
                            mpcImages: imgDataURLs
                           };
-                          
-                          
+
                      UpdateActiveElementEvent.trigger(properties);
                   }
 
