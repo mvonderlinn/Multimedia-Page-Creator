@@ -17,7 +17,7 @@ ImagePainter = {
       if(!$(domEl).hasClass("mpc-tool-image")) {       
          return;
       }
-
+      $(domEl).children("img").remove();
       var imgs = $(domEl).attr("mpcimages").split(ImageController.separator);
       for(var index in imgs) {
          var imageDataURL = imgs[index];
