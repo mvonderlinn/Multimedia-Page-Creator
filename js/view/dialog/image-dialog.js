@@ -39,7 +39,9 @@ ImageDialog = {
       for(var index in files) {
          var f = files[index];
          
-         if ( 'type' in f && f.type.match( 'image.*' ) ) {
+         if ( "object" == typeof f 
+               && 'type' in f 
+               && f.type.match( 'image.*' ) ) {
             var reader = new FileReader();
             
             reader.onload = (function(index, len, ar) {
