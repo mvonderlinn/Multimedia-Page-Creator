@@ -36,30 +36,27 @@ ImageDialog = {
       var files = document.getElementById("mpc-image-dlg-file").files;
       var len = files.length;
       
-      for(var index in files) {
-         var f = files[index];
+      index = 1;
+      for(var k in files) {
+         var f = files[k];
          
          if ( "object" == typeof f 
                && 'type' in f 
                && f.type.match( 'image.*' ) ) {
             var reader = new FileReader();
             
-            reader.onload = (function(index, len, ar) {
-               return function(ev) {
-                  
-                  ar.push(ev.target.result);
-                  
-                  if(index == (len -1) ){
-                     var properties = {
-                           mpcImages: imgDataURLs
-                          };
+            reader.onload = function(ev) {
+                              imgDataURLs.push(ev.target.result);
+                              if(index == (len) ){
+                                 var properties = {
+                                       mpcImages: imgDataURLs
+                                      };
 
-                     UpdateActiveElementEvent.trigger(properties);
-                  }
+                                 UpdateActiveElementEvent.trigger(properties);
+                              }
+                              index++;
+                            };
 
-               };
-            })(index,len,imgDataURLs);
-            
             reader.readAsDataURL( f );
          }
       }

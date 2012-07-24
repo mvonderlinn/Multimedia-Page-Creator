@@ -51,8 +51,7 @@
 
  <script type="text/javascript" src="js/view/page-view.js"></script> 
  
- <!-- view: painters -->
- 
+ <!-- view: painters --> 
  <script type="text/javascript" src="js/view/painters/oval-painter.js"></script>
  <script type="text/javascript" src="js/view/painters/rectangle-painter.js"></script>
  <script type="text/javascript" src="js/view/painters/triangle-painter.js"></script>
@@ -63,11 +62,11 @@
  <script type="text/javascript" src="js/view/painters/youtube-painter.js"></script>
  <script type="text/javascript" src="js/view/painters/hyperlink-painter.js"></script>
  <script type="text/javascript" src="js/view/painters/image-painter.js"></script>
+ <script type="text/javascript" src="js/view/painters/text-painter.js"></script>
  
  <!-- view: dialogs --> 
  
  <script type="text/javascript" src="js/view/dialog/shape-dialog.js"></script>  
- 
  <script type="text/javascript" src="js/view/dialog/oval-dialog.js"></script> 
  <script type="text/javascript" src="js/view/dialog/rectangle-dialog.js"></script> 
  <script type="text/javascript" src="js/view/dialog/triangle-dialog.js"></script> 
@@ -78,6 +77,7 @@
  <script type="text/javascript" src="js/view/dialog/youtube-dialog.js"></script> 
  <script type="text/javascript" src="js/view/dialog/hyperlink-dialog.js"></script> 
  <script type="text/javascript" src="js/view/dialog/image-dialog.js"></script> 
+ <script type="text/javascript" src="js/view/dialog/text-dialog.js"></script>
  
 </head>
 <body>
@@ -126,7 +126,6 @@
    <img src="im/select-icon.png" id="mpc-select-ico" width="35" height="48" alt="select" />
 
 <!-- Menu is defined below -->
-   
    <div id="mpc-menu">
       <a id="mpc-menu-file" class="mpc-menu-heading" href="#">
          File
@@ -263,11 +262,12 @@
 -->
 <div id="mpc-text-dlg" style="display: none" title="Text properties">
    <table>
- <tr>
+   <tr>
       <td>
          Font family:
       </td>
       <td>
+
          <select id="mpc-text-font-family-sel">
             <option value="Arial">Arial</option>
             <option value="Courier New">Courier New</option>
@@ -277,6 +277,7 @@
             <option value="Times New Roman">Times New Roman</option>
             <option value="Verdana">Verdana</option>
          </select>
+
       </td>
    </tr>     
    <tr>
@@ -330,15 +331,7 @@
       </td>
    </tr>
    <tr>
-      <td>
-         Rotate (degree):
-      </td>
-      <td>
-         <input type="text" value="0" id="mpc-text-rotate-deg" name="mpc-text-rotate-deg" />
-      </td>
-   </tr>
-   <tr>
-   <td colspan="2">
+   <td colspan="2" style="text-align: center;">
       <input type="button" value="ok" id="mpc-text-ok-btn" name="mpc-text-ok-btn" />
    </td>
    </tr>
