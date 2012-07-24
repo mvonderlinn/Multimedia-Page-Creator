@@ -44,7 +44,7 @@ ImageDialog = {
             
             reader.onload = (function(index, len, ar) {
                return function(ev) {
-                  alert(5);
+                  
                   ar.push(ev.target.result);
                   
                   if(index == (len -1) ){
@@ -52,7 +52,7 @@ ImageDialog = {
                            mpcImages: imgDataURLs
                           };
                           
-                          alert("yo");
+                          
                      UpdateActiveElementEvent.trigger(properties);
                   }
 

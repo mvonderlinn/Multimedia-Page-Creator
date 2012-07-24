@@ -59,7 +59,7 @@ ImageController = {
       if( $("." + this.shapeClass + ".mpc-active-el").length ) {
          var domEl = $( "." + this.shapeClass + ".mpc-active-el" );
 
-         domEl.attr("mpgImages", properties.mpcImages.join(ImageController.separator) );
+         domEl.attr("mpcImages", properties.mpcImages.join(ImageController.separator) );
          
          PaintElementEvent.trigger(domEl);
       }

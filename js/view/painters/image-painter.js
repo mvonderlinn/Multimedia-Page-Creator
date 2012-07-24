@@ -14,15 +14,16 @@ ImagePainter = {
     *   mpcBorderColor
     */
    onPaintElement: function(domEl) {
-      if(!$(domEl).hasClass("mpc-tool-image")) {
-       
+      if(!$(domEl).hasClass("mpc-tool-image")) {       
          return;
       }
+
+      var imgs = $(domEl).attr("mpcimages").split(ImageController.separator);
+      for(var index in imgs) {
+         var imageDataURL = imgs[index];
+         $('<img src="' + imageDataURL + '"/>').appendTo(domEl);
+      }
       
-      $("<canvas></canvas>").appendTo(domEl);
-      var canvasEl = $(domEl).children("canvas").get(0);
-      
-        
    }
    
 }.init();
