@@ -1,3 +1,12 @@
+/**
+
+All of these types of link should be processed:
+
+http://www.youtube.com/watch?xOp_u17hkGU
+http://www.youtube.com/watch?v=P9hOFOgqOds&feature=related
+http://www.youtube.com/watch?feature=endscreen&NR=1&v=zzbzHtdCzlI
+
+*/
 YoutubeController = {
    
    shapeClass: "mpc-tool-youtube",
